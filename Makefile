@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/10/25 01:39:00 by vthomas          ###   ########.fr        #
+#    Updated: 2016/10/25 08:59:36 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,10 @@ SRC_NAME = main.c\
 		   get_next_line.c\
 		   prompt.c\
 		   env.c\
-		   event.c
+		   command.c\
+		   event.c\
+		   builtin.c\
+		   subcommand.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -72,5 +75,5 @@ re: fclean all
 
 test: re
 	@clear
-	./$(NAME) | cat -e
+	./$(NAME)
 .PHONY: fclean clean
