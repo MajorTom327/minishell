@@ -6,17 +6,17 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/03 05:24:31 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/04 00:59:29 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=minishell
 
 SRC_NAME = main.c\
-		   get_next_line.c\
 		   env/init.c\
 		   env/terminal.c\
 		   input/input.c\
+		   input/get_command.c\
 		   other/exit.c\
 		   other/loop.c\
 		   tree/cmd.c\
@@ -26,7 +26,7 @@ SRC_NAME = main.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-DBG_OUTPUT = /dev/ttys003
+DBG_OUTPUT = /dev/ttys002
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 OBJ_SUB = env other tree input

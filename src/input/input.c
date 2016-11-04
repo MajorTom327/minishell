@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 05:20:42 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/03 05:49:19 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/03 23:55:19 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,18 @@ void	input(char *str)
 			dbg_info("input", "down pressed", 1);
 		ft_strclr(str);
 	}
+	else if (ft_strchr(str, 127) != NULL)
+	{
+		dbg_info("input", "delete found", 1);
+		ft_putstr("\033[2D \033[1D");
+	}
+}
+
+char	*strdelete(char *dst, char *src)
+{
+	if (src[0] == 127)
+		dst[ft_strlen(dst) - 1] = '\0';
+	else
+		return (ft_freejoin(dst, src));
+	return (dst);
 }

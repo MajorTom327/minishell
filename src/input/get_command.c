@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_command.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/10 00:43:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/03 05:26:30 by vthomas          ###   ########.fr       */
+/*   Created: 2016/11/04 00:56:36 by vthomas           #+#    #+#             */
+/*   Updated: 2016/11/04 01:00:02 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-#include <get_next_line.h>
 #include <minishell.h>
 #include <libft.h>
 
@@ -83,26 +82,27 @@ static int	sf_finaltest(int ret, char **line, char *tmp)
 	return (1);
 }
 
-int			get_next_line(const int fd, char **line)
+int			get_command(char **line)
 {
 	int		ret;
 	char	*tmp;
 
-	if (fd < 0 || line == NULL)
+	if (0 < 0 || line == NULL)
 		return (-1);
 	if ((ret = sf_save(line, 1)) == 1)
 		return (1);
 	else if (ret == 0)
 		*line = ft_strnew(0);
-	ret = BUFF_SIZE;
-	tmp = ft_strnew(BUFF_SIZE);
-	while ((ret = read(fd, tmp, BUFF_SIZE)) != 0)
+	ret = 4;
+	tmp = ft_strnew(4);
+	while ((ret = read(0, tmp, 4)) != 0)
 	{
 		if (ret == -1)
 			return (-1);
-		input(tmp);
 		tmp[ret] = '\0';
-		*line = ft_freejoin(*line, tmp);
+		input(tmp);
+		*line = strdelete(*line, tmp);
+		//*line = ft_freejoin(*line, tmp);
 		if (ft_strchr(tmp, '\n'))
 			break ;
 		ft_strclr(tmp);
