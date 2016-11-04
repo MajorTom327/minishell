@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 01:31:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/04 01:34:01 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/04 03:37:09 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,15 @@ char	*get_pwd(t_sh *e)
 	int		l;
 	char	*hm;
 
-	hm = env_search(e->env, "HOME")->value;
+	if (env_search(e->env, "HOME") == NULL)
+		hm = NULL;
+	else
+		hm = env_search(e->env, "HOME")->value;
 	buf = ft_strnew(1024);
 	if (buf == NULL)
 		return (NULL);
 	buf = getcwd(buf, 1024);
-	if (hm== NULL)
+	if (hm == NULL)
 		return (buf);
 	l = ft_strlen(hm);
 	if (ft_strncmp(buf, hm, l) == 0)

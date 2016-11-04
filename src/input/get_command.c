@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 00:56:36 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/04 01:00:02 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/04 01:51:24 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 #include <minishell.h>
 #include <libft.h>
+
+/*
+** This file containnig a modded version of get_next_line for get a full command
+** with cannonical implementation and parsing for the signalslike '^L'
+*/
 
 static void	sf_repos(char **str)
 {
@@ -100,9 +105,8 @@ int			get_command(char **line)
 		if (ret == -1)
 			return (-1);
 		tmp[ret] = '\0';
-		input(tmp);
+		input(tmp, (int)ft_strlen(*line));
 		*line = strdelete(*line, tmp);
-		//*line = ft_freejoin(*line, tmp);
 		if (ft_strchr(tmp, '\n'))
 			break ;
 		ft_strclr(tmp);
