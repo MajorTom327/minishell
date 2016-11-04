@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:36:27 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/03 04:41:53 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/04 03:57:25 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ t_tree	*tree_add(t_tree *t, int hash)
 		t->left = tmp;
 	else
 		t->right = tmp;
+	tmp->parent = t;
 	return (tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:37:04 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/03 02:29:02 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/04 03:57:39 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ typedef	struct		s_tree
 {
 	int				hash;
 	void			*value;
+	struct s_tree	*parent;
 	struct s_tree	*left;
 	struct s_tree	*right;
 }					t_tree;
