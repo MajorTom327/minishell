@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:32:39 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/03 01:59:44 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/05 23:55:09 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,10 @@ void	exit_mem(void *mem)
 		ft_putendl("An memory error occured !");
 		exit(EXIT_FAILURE);
 	}
+}
+
+void	exit_success(void)
+{
+	ft_putchar('\n');
+	exit(EXIT_SUCCESS);
 }

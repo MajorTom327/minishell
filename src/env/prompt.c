@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 01:28:55 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/04 03:46:28 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/05 23:53:50 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	get_prompt_noenv(t_sh *e)
 	prompt = ft_strdup("\033[90mminishell");
 	prompt = ft_freejoin(prompt, col);
 	prompt = ft_freejoin(prompt, pwd);
-	prompt = ft_freejoin(prompt, "\033[0m> ");
+	prompt = ft_freejoin(prompt, "\033[90m>\033[0m ");
 	e->prompt = ft_strdup(prompt);
 	ft_strdel(&prompt);
 	return ((e->prompt == NULL));
@@ -50,7 +50,7 @@ static int	get_prompt_env(t_sh *e)
 		prompt = ft_freejoin(prompt, username);
 		prompt = ft_freejoin(prompt, col);
 		prompt = ft_freejoin(prompt, pwd);
-		prompt = ft_freejoin(prompt, "\033[0m> ");
+		prompt = ft_freejoin(prompt, "\033[90m>\033[0m ");
 	}
 	e->prompt = ft_strdup(prompt);
 	ft_strdel(&prompt);

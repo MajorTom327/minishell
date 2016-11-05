@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/04 01:40:14 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/05 23:54:16 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME=minishell
 
 SRC_NAME = main.c\
 		   builtin/pwd.c\
+		   env/build.c\
 		   env/init.c\
 		   env/prompt.c\
 		   env/terminal.c\
@@ -85,7 +86,7 @@ fclean: clean
 
 re: fclean all
 
-test: re
+test: all
 	@clear
 	@clear > $(DBG_OUTPUT)
 	@echo "\033[32;4m`date`\033[0m\n" >> $(DBG_OUTPUT)

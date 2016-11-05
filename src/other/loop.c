@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 04:50:47 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/04 03:34:12 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/05 22:43:13 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	loop(t_sh *sh)
 	while ((ret = get_command(&buf)))
 	{
 		dbg_var_str("loop", "buf", buf, 1);
+		build(sh);
 		ft_memdel(&buf);
 		if (get_prompt(sh))
 			exit(EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 05:20:42 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/04 01:53:09 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/05 23:55:33 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,21 @@ void	input(char *str, int l)
 		ft_strclr(str);
 	}
 	else if (str[0] == 4 || str[0] == 3)
-		exit(EXIT_SUCCESS);
+		exit_success();
 	else if (ft_strncmp(str, "\033[", 2) == 0)
 	{
-		//MOTION
 		if (str[2] == VK_UP)
-			dbg_info("input", "up pressed", 1);
+			ft_putstr("\033[1B");
 		else if (str[2] == VK_LEFT)
-			dbg_info("input", "left pressed", 1);
+			ft_putstr("\033[1C");
 		else if (str[2] == VK_RIGHT)
-			dbg_info("input", "right pressed", 1);
+			ft_putstr("\033[1D");
 		else if (str[2] == VK_DOWN)
-			dbg_info("input", "down pressed", 1);
+			ft_putstr("\033[1A");
 		ft_strclr(str);
-		ft_putstr("\033[1D");
 	}
 	else if (ft_strchr(str, 127) != NULL)
 	{
-		dbg_info("input", "delete found", 1);
 		if (l)
 			ft_putstr("\033[2D \033[1D");
 		else

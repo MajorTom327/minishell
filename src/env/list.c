@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/03 04:38:24 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/05 22:43:31 by vthomas          ###   ########.fr       */
+/*   Created: 2016/11/04 03:55:19 by vthomas           #+#    #+#             */
+/*   Updated: 2016/11/04 03:59:11 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
-# define ENV_H
+#include <minishell.h>
+#include <tree.h>
 
-# include <minishell.h>
-# include <tree.h>
+char **env_list(t_tree *t)
+{
+	t_tree	*tmp;
+	while (t)
+	{
+		tmp = t->left;
+		while (tmp->left)//aller a fond a gauche
+		{
 
-void	add_env(t_tree *t, char *str);
-t_env	*env_search(t_tree *env, char *str);
-
-void	add_cmd(t_tree *tcmd, t_cmd cmd);
-t_cmd	cmd(char *name, int type, char *exec, void *param);
-t_cmd	cmd_builtin(char *name, void *p, int (*f)(void *));
-char	**build(t_sh *e);
-#endif
+		}
+	}
+}
