@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/06 00:30:29 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/06 03:01:46 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC_NAME = main.c\
 		   env/terminal.c\
 		   input/input.c\
 		   input/get_command.c\
+		   input/parse/clean.c\
 		   other/exit.c\
 		   other/loop.c\
 		   tree/cmd.c\
@@ -33,7 +34,7 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 DBG_OUTPUT = /dev/ttys002
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
-OBJ_SUB = env other tree input builtin
+OBJ_SUB = env other tree input input/parse builtin
 
 SRC=$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ=$(addprefix $(OBJ_PATH),$(OBJ_NAME))
