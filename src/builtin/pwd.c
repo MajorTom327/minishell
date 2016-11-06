@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 01:31:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/04 03:37:09 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/06 05:35:50 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,13 @@
 #include <unistd.h>
 #include <env.h>
 
-int		pwd(t_sh *e)
+int		pwd(void *v_par)
 {
-	char	*buf;
-	int		l;
-	char	*hm;
+	char	buf[1024];
 
-	hm = env_search(e->env, "HOME")->value;
-	buf = ft_strnew(1024);
-	if (buf == NULL)
-		return (1);
-	buf = getcwd(buf, 1024);
-	l = ft_strlen(hm);
-	if (ft_strncmp(buf, hm, l) == 0 && ft_strcmp(buf, hm) != 0)
-	{
-		buf[l - 1] = '~';
-		ft_putendl(&buf[l - 1]);
-	}
-	else
-		ft_putendl(buf);
-	ft_strdel(&buf);
+	(void)v_par;
+	getcwd(buf, 1024);
+	ft_putendl(buf);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:30:02 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/06 05:24:51 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/06 05:28:02 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ t_sh	*init(char **env)
 	exit_mem(c = (t_cmd *)ft_memalloc(sizeof(t_cmd)));
 	c->type = SH_BUILTIN;
 	c->name = ft_strdup("pwd");
+	c->f = &pwd;
 	add_cmd(sh->cmd, cmd_builtin("cd", sh, NULL));
 	add_cmd(sh->cmd, cmd_builtin("echo", sh, NULL));
 	add_cmd(sh->cmd, cmd_builtin("env", sh, NULL));

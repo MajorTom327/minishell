@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/06 03:39:04 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/06 05:31:56 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	exit_mem(void *mem);
 void	exit_success(void);
 
 char	*get_pwd(t_sh *e);
-int		pwd(t_sh *e);
+int		pwd(void *v_par);
 
 char	**clean_cmd(char **cmd);
 int		execute(t_sh *sh, char **cmd);
