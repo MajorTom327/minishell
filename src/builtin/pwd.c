@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 01:31:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/06 05:35:50 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/06 05:44:55 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 #include <unistd.h>
 #include <env.h>
 
-int		pwd(void *v_par)
+int		pwd(void *v_par, char **cmd)
 {
 	char	buf[1024];
 
 	(void)v_par;
+	(void)cmd;
 	getcwd(buf, 1024);
 	ft_putendl(buf);
 	return (0);

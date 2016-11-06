@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:43:23 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/03 04:43:42 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/06 06:00:30 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_cmd	cmd(char *name, int type, char *exec, void *param)
 	return (cmd);
 }
 
-t_cmd	cmd_builtin(char *name, void *p, int (*f)(void *))
+t_cmd	cmd_builtin(char *name, int (*f)(void *, char **))
 {
 	t_cmd	cmd;
 
@@ -39,7 +39,6 @@ t_cmd	cmd_builtin(char *name, void *p, int (*f)(void *))
 	cmd.name = name;
 	cmd.type = SH_BUILTIN;
 	cmd.f = f;
-	cmd.param = p;
 	return (cmd);
 }
 
@@ -65,6 +64,7 @@ void	add_cmd(t_tree *tcmd, t_cmd cmd)
 	m_cmd->type = cmd.type;
 	m_cmd->name = cmd.name;
 	m_cmd->exec = cmd.exec;
+	m_cmd->f = cmd.f;
 	m_cmd->param = cmd.param;
 	ttmp->value = (void *)m_cmd;
 }
