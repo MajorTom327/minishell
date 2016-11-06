@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 02:12:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/03 04:40:18 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/06 01:08:15 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	add_env(t_tree *t, char *str)
 	t_tree	*tmp;
 	t_env	*env;
 
-	key = str;
+	dbg_var_str("add_env", "str", str, 2);
+	key = ft_strdup(str);
 	value = ft_strchr(key, '=') + 1;
 	*(value - 1) = '\0';
 	m_hash = hash(key);
@@ -34,6 +35,8 @@ void	add_env(t_tree *t, char *str)
 	env->key = ft_strdup(key);
 	env->value = ft_strdup(value);
 	tmp->value = (void *)env;
+	ft_strdel(&key);
+	dbg_var_str("add_env", "env->key", env->key, 2);
 }
 
 t_env	*env_search(t_tree *env, char *str)

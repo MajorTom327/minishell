@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/05 23:54:16 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/06 00:30:29 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC_NAME = main.c\
 		   builtin/pwd.c\
 		   env/build.c\
 		   env/init.c\
+		   env/key.c\
 		   env/prompt.c\
 		   env/terminal.c\
 		   input/input.c\
@@ -90,5 +91,5 @@ test: all
 	@clear
 	@clear > $(DBG_OUTPUT)
 	@echo "\033[32;4m`date`\033[0m\n" >> $(DBG_OUTPUT)
-	./$(NAME) 2>> $(DBG_OUTPUT)
+	env -i ./$(NAME) 2>> $(DBG_OUTPUT)
 .PHONY: fclean clean

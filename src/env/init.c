@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:30:02 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/06 00:17:06 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/06 01:12:06 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ static void	sf_gethome(t_tree *t)
 	key = ft_freejoin(key, value);
 	add_env(t, key);
 	ft_strdel(&value);
-	ft_strdel(&key);
-	key = ft_strdup("SHLVL=1");
-	add_env(t, key);
 	ft_strdel(&key);
 }
 
