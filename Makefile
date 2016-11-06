@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/06 03:01:46 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/06 03:39:52 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC_NAME = main.c\
 		   env/key.c\
 		   env/prompt.c\
 		   env/terminal.c\
+		   exec/execute.c\
 		   input/input.c\
 		   input/get_command.c\
 		   input/parse/clean.c\
@@ -34,7 +35,7 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 DBG_OUTPUT = /dev/ttys002
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
-OBJ_SUB = env other tree input input/parse builtin
+OBJ_SUB = env exec other tree input input/parse builtin
 
 SRC=$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ=$(addprefix $(OBJ_PATH),$(OBJ_NAME))
@@ -71,8 +72,6 @@ lib:
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir -p $(addprefix $(OBJ_PATH),$(OBJ_SUB))
-	#@mkdir -p $(OBJ_PATH)/
-
 	$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 clean:

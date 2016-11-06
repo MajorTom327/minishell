@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:36:27 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/04 03:57:25 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/06 05:18:59 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_tree	*tree_search(t_tree *t, char *str)
 		else
 			return (t);
 	}
+	return (NULL);
 }
 
 t_tree	*tree_add(t_tree *t, int hash)

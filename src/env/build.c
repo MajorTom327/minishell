@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 22:36:55 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/06 01:17:36 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/06 03:41:18 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,9 @@ static char	**sf_envbuild(t_tree *t, int st)
 	e[i] = get_key((t_env *)t->value);
 	i++;
 	if (t->left != NULL)
-	{
-		dbg_info("sf_envbuild", "goto left", 3);
 		sf_envbuild(t->left, 0);
-	}
 	if (t->right != NULL)
-	{
-		dbg_info("sf_envbuild", "goto right", 3);
 		sf_envbuild(t->right, 0);
-	}
 	return (e);
 }
 
@@ -62,11 +56,8 @@ char		**build(t_sh *e)
 
 	sf_count(NULL, 1);
 	cnt = sf_count(e->env, 0);
-	dbg_var_int("build", "number of env", cnt, 2);
 	sf_envbuild(NULL, cnt);
-	dbg_info("build", "init sf_envbuild OK", 2);
 	env = sf_envbuild(e->env, 0);
 	env[cnt] = NULL;
-	dbg_var_array_str("ENV", "env", env, 2);
 	return (NULL);
 }

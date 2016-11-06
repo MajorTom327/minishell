@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/06 02:59:19 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/06 03:39:04 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	terminal(t_sh *sh);
 void	input(char *str, int l);
 char	*strdelete(char *dst, char *src);
 int		get_command(char **line);
+int		get_prompt(t_sh *e);
 
 void	exit_mem(void *mem);
 void	exit_success(void);
@@ -64,5 +65,6 @@ char	*get_pwd(t_sh *e);
 int		pwd(t_sh *e);
 
 char	**clean_cmd(char **cmd);
+int		execute(t_sh *sh, char **cmd);
 
 #endif
