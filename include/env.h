@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 04:38:24 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/06 05:51:35 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 04:23:36 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <minishell.h>
 # include <tree.h>
+
+void	important_var(char **env, t_tree *t);
 
 void	add_env(t_tree *t, char *str);
 t_env	*env_search(t_tree *env, char *str);

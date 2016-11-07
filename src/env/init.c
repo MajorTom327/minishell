@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:30:02 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 02:43:09 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 04:53:45 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	gethome(t_tree *t)
 	char	*key;
 	char	*value;
 
+	if (tree_search(t, "HOME") != NULL)
+		return ;
 	key = ft_strdup("HOME=");
 	value = ft_strdup(getpwuid(getuid())->pw_dir);
 	key = ft_freejoin(key, value);
@@ -35,6 +37,7 @@ t_tree	*default_env()
 	char	*key;
 	char	tmp[1024];
 
+	dbg_info("default_env", "default env", 2);
 	exit_mem((t = (t_tree *)ft_memalloc(sizeof(t_tree))));
 	exit_mem((e = (t_env *)ft_memalloc(sizeof(t_env))));
 	t->hash = hash("SHLVL");
@@ -76,6 +79,7 @@ t_tree	*init_env(char **env)
 	t->value = (void *)e;
 	while (env[++i])
 		add_env(t, env[i]);
+	important_var(env, t);
 	return (t);
 }
 

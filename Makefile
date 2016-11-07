@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/06 05:46:05 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/07 04:23:54 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC_NAME = main.c\
 		   builtin/pwd.c\
 		   builtin/cd.c\
 		   env/build.c\
+		   env/important.c\
 		   env/init.c\
 		   env/key.c\
 		   env/prompt.c\

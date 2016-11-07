@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/06 05:46:19 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 04:01:09 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 04:26:25 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		cd(void *env, char **cmd)
 	t_sh	*e;
 
 	e = (t_sh *)env;
+	gethome(e->env);
 	if (cmd[1] == NULL || ft_strcmp(cmd[1], "--") == 0)
 		path = ft_strdup(env_search(e->env, "HOME")->value);
 	else
@@ -53,7 +54,8 @@ int		cd(void *env, char **cmd)
 	ret = chdir(path);
 	if (ret != 0)
 	{
-		ft_putendl("An error occured !");
+		ft_putstr("cd: no such file or directory: ");
+		ft_putendl(path);
 		return (ret);
 	}
 	ft_strdel(&(env_search(e->env, "PWD")->value));
