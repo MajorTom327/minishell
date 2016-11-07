@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 04:50:47 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 02:54:12 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 08:35:05 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 
 void	loop(t_sh *sh)
 {
-	int ret;
-	char *buf;
+	int		ret;
+	char	*buf;
 	char	**cmd;
+	size_t	l;
 
 	dbg_info("loop", "loop start", 1);
 	if (get_prompt(sh))
@@ -28,14 +29,16 @@ void	loop(t_sh *sh)
 	while ((ret = get_command(&buf, sh)))
 	{
 		dbg_var_str("loop", "buf", buf, 1);
-		if (ft_strlen(buf) == 0 || (cmd = clean_cmd(&buf)) == NULL)
+		l = ft_strlen(buf);
+		if (l != 0)
+			cmd = clean_cmd(&buf);
+		if (l == 0 || cmd == NULL)
 		{
 			ft_putstr(sh->prompt);
 			ft_strdel(&buf);
 			continue ;
 		}
-		//cmd = clean_cmd(&buf);
-//		dbg_var_array_str("loop", "cmd", cmd, 2);
+		dbg_var_array_str("loop", "cmd", cmd, 2);
 		execute(sh, cmd);
 		ft_strdel(&buf);
 		if (get_prompt(sh))

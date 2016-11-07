@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 04:12:43 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 04:53:18 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 09:12:50 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	sf_pwdenv(t_tree *t, char *type)
 	char *str;
 	char buf[1024];
 
+	getcwd(buf, 1024);
 	str = ft_strdup(type);
 	str = ft_freejoin(str, "=");
-	getcwd(buf, 1024);
 	str = ft_freejoin(str, buf);
 	add_env(t, str);
 }
@@ -50,7 +50,7 @@ void	important_var(char **env, t_tree *t)
 	if (!(a & 0x02))
 		sf_pwdenv(t, "OLDPWD");
 	if (!(a & 0x04))
-		add_env(t, ft_strdup("SHLVL=1"));
+		add_env(t, "SHLVL=1");
 	if (!(a & 0x08))
 		gethome(t);
 }

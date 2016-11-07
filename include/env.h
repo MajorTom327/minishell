@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 04:38:24 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 04:23:36 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 08:15:09 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,6 @@ t_cmd	cmd_builtin(char *name, int (*f)(void *, char **));
 
 char	**build(t_sh *e);
 char	*get_key(t_env *env);
+
+void	env_array_free(char **env);
 #endif

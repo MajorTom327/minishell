@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:30:02 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 07:41:50 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 09:13:13 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_tree	*default_env()
 	t_env	*e;
 	char	*key;
 	char	tmp[1024];
+	char	*tmp2[2];
 
 	dbg_info("default_env", "default env", 2);
 	exit_mem((t = (t_tree *)ft_memalloc(sizeof(t_tree))));
@@ -45,16 +46,10 @@ t_tree	*default_env()
 	e->key = ft_strdup("SHLVL");
 	e->value = ft_strdup("1");
 	t->value = (void *)e;
-	key = ft_strdup("PWD=");
-	getcwd(tmp, 1024);
-	key = ft_freejoin(key, tmp);
-	add_env(t, key);
-	ft_strdel(&key);
-	key = ft_strdup("OLDPWD=");
-	key = ft_freejoin(key, tmp);
-	add_env(t, key);
-	ft_strdel(&key);
-	gethome(t);
+	tmp2[0] = ft_strdup("SHLVL");
+	tmp2[1] = NULL;
+	important_var(tmp2, t);
+	ft_strdel(&tmp2[0]);
 	return (t);
 }
 

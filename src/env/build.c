@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 22:36:55 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 07:58:24 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 08:59:31 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char		**build(t_sh *e)
 	char **env;
 
 	sf_count(NULL, 1);
-	cnt = sf_count(e->env, 0);
+	cnt = sf_count(e->env, 0) + 1;
 	sf_envbuild(NULL, cnt);
 	env = sf_envbuild(e->env, 0);
 	ft_strdel(&env[cnt]);

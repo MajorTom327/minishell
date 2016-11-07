@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 02:12:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 02:46:51 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 08:13:57 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ void	add_env(t_tree *t, char *str)
 	exit_mem(env = (t_env *)ft_memalloc(sizeof(t_env)));
 	env->key = ft_strdup(key);
 	if (ft_strcmp(env->key, "SHLVL") == 0)
-		value = ft_itoa(ft_atoi(value) + 1);
-	env->value = ft_strdup(value);
+		env->value = ft_itoa(ft_atoi(value) + 1);
+	else
+		env->value = ft_strdup(value);
 	tmp->value = (void *)env;
 	ft_strdel(&key);
 }
@@ -50,4 +51,17 @@ t_env	*env_search(t_tree *env, char *str)
 			return (NULL);
 	}
 	return ((t_env *)env->value);
+}
+
+void	env_array_free(char **env)
+{
+	int i;
+
+	i = 0;
+	while (env[i])
+	{
+		ft_strdel(&env[i]);
+		i++;
+	}
+	ft_memdel((void **)&env);
 }

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 01:07:39 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 04:25:31 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 08:37:51 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ int	execute(t_sh *sh, char **cmd)
 {
 	t_tree	*t;
 	t_cmd	*cmdtmp;
-	char	**env;
 
-	env = build(sh);
+	dbg_info("execute", "We received your order. We will start execute procedure.", 3);
 	t = tree_search(sh->cmd, cmd[0]);
 	if (!(t = tree_search(sh->cmd, cmd[0])))
 	{
@@ -38,9 +37,6 @@ int	execute(t_sh *sh, char **cmd)
 	}
 	dbg_info("execute", "Command found", 2);
 	cmdtmp = (t_cmd *)t->value;
-	dbg_info("execute", "cmdtmp set", 2);
-	if (cmdtmp == NULL)
-		dbg_info("execute", "cmdtmp is NULL", 2);
 	if (cmdtmp->f == NULL)
 		dbg_info("execute", "function is not set", 2);
 	else
