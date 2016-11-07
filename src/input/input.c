@@ -6,21 +6,27 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 05:20:42 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/05 23:55:33 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 03:10:25 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 #include <libft.h>
+static void	clearscreen(t_sh *sh, char *line, char *str)
+{
+	int	l;
+	int i;
 
+	ft_putstr("\033[2J\033[0;0f");
+	ft_putstr(sh->prompt);
+	ft_putstr(line);
+	ft_strclr(str);
+}
 
-void	input(char *str, int l)
+void		input(char *str, int l, char *line, t_sh *sh)
 {
 	if (str[0] == 12)
-	{
-		ft_putstr("\033[2J\033[0;0f");
-		ft_strclr(str);
-	}
+		clearscreen(sh, line, str);
 	else if (str[0] == 4 || str[0] == 3)
 		exit_success();
 	else if (ft_strncmp(str, "\033[", 2) == 0)
@@ -44,10 +50,14 @@ void	input(char *str, int l)
 	}
 }
 
-char	*strdelete(char *dst, char *src)
+char		*strdelete(char *dst, char *src)
 {
 	if (src[0] == 127)
+	{
+		if (dst[ft_strlen(dst) - 1] == '\t')
+			ft_putstr("\033[3D");
 		dst[ft_strlen(dst) - 1] = '\0';
+	}
 	else
 		return (ft_freejoin(dst, src));
 	return (dst);

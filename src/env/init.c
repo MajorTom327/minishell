@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:30:02 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/06 05:59:36 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 02:43:09 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <env.h>
 #include <pwd.h>
 
-static void	sf_gethome(t_tree *t)
+void	gethome(t_tree *t)
 {
 	char	*key;
 	char	*value;
@@ -50,7 +50,7 @@ t_tree	*default_env()
 	key = ft_freejoin(key, tmp);
 	add_env(t, key);
 	ft_strdel(&key);
-	sf_gethome(t);
+	gethome(t);
 	return (t);
 }
 
@@ -93,7 +93,6 @@ t_sh	*init(char **env)
 	t_sh	*sh;
 	t_cmd	*c;
 
-	dbg_title("init");
 	exit_mem((void *)(sh = (t_sh *)ft_memalloc(sizeof(t_sh))));
 	exit_mem(sh->cmd = (t_tree *)ft_memalloc(sizeof(t_tree)));
 	dbg_info("init", "Alloc success !", 1);
@@ -108,6 +107,5 @@ t_sh	*init(char **env)
 	add_cmd(sh->cmd, cmd_builtin("exit", NULL));
 	sh->cmd->value = c;
 	sh->env = init_env(env);
-	dbg_title("back to main");
 	return (sh);
 }

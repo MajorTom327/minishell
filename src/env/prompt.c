@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 01:28:55 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/05 23:53:50 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 02:41:37 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static int	get_prompt_env(t_sh *e)
 	char	*username;
 
 	pwd = get_pwd(e);
+	gethome(e->env);
 	if (env_search(e->env, "USER") != NULL)
 		username = (env_search(e->env, "USER"))->value;
 	else

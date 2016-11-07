@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 01:07:39 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/06 05:55:38 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 03:02:25 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	execute(t_sh *sh, char **cmd)
 	dbg_info("execute", "Command found", 2);
 	cmdtmp = (t_cmd *)t->value;
 	dbg_info("execute", "cmdtmp set", 2);
+	if (cmdtmp == NULL)
+		dbg_info("execute", "cmdtmp is NULL", 2);
 	if (cmdtmp->f == NULL)
 		dbg_info("execute", "function is not set", 2);
 	else

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/06 05:46:19 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/06 06:26:02 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 04:01:09 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,22 @@
 #include <libft.h>
 #include <env.h>
 
-int	cd(void *env, char **cmd)
+void	oldpwdset(t_sh *e)
+{
+	char buff[1024];
+
+	getcwd(buff, 1024);
+	env_search(e->env, "OLDPWD")->value = ft_strdup(buff);
+}
+
+int		cd(void *env, char **cmd)
 {
 	int		ret;
 	char	*path;
 	t_sh	*e;
 
 	e = (t_sh *)env;
-	if (cmd[1] == NULL)
+	if (cmd[1] == NULL || ft_strcmp(cmd[1], "--") == 0)
 		path = ft_strdup(env_search(e->env, "HOME")->value);
 	else
 	{
@@ -31,22 +39,25 @@ int	cd(void *env, char **cmd)
 			path = ft_strdup(env_search(e->env, "HOME")->value);
 			path = ft_freejoin(path, &cmd[1][1]);
 		}
-		if (cmd[1][0] == '-')
+		if (cmd[1][0] == '-' && cmd[1][1] == '\0')
 		{
 			path = ft_strdup(env_search(e->env, "OLDPWD")->value);
 			ft_strdel(&(env_search(e->env, "OLDPWD")->value));
-			env_search(e->env, "OLDPWD")->value = env_search(e->env, "PWD")->value;
-			env_search(e->env, "PWD")->value = NULL;
+			ft_strdel(&(env_search(e->env, "PWD")->value));
 			ft_putendl(path);
 		}
 		else
 			path = ft_strdup(cmd[1]);
 	}
+	oldpwdset(e);
 	ret = chdir(path);
+	if (ret != 0)
+	{
+		ft_putendl("An error occured !");
+		return (ret);
+	}
 	ft_strdel(&(env_search(e->env, "PWD")->value));
 	env_search(e->env, "PWD")->value = ft_strdup(path);
-	if (ret != 0)
-		ft_putendl("An error occured !");
 	ft_strdel(&path);
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 00:56:36 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/04 01:51:24 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 02:55:28 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static int	sf_finaltest(int ret, char **line, char *tmp)
 	return (1);
 }
 
-int			get_command(char **line)
+int			get_command(char **line, t_sh *sh)
 {
 	int		ret;
 	char	*tmp;
@@ -105,7 +105,7 @@ int			get_command(char **line)
 		if (ret == -1)
 			return (-1);
 		tmp[ret] = '\0';
-		input(tmp, (int)ft_strlen(*line));
+		input(tmp, (int)ft_strlen(*line), *line, sh);
 		*line = strdelete(*line, tmp);
 		if (ft_strchr(tmp, '\n'))
 			break ;
