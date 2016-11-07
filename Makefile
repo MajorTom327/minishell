@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/07 04:23:54 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/07 05:07:49 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME=minishell
 SRC_NAME = main.c\
 		   builtin/pwd.c\
 		   builtin/cd.c\
+		   builtin/exit.c\
 		   env/build.c\
 		   env/important.c\
 		   env/init.c\

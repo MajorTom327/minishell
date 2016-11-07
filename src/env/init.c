@@ -6,13 +6,14 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:30:02 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 04:53:45 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 05:08:05 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 #include <libft.h>
 #include <env.h>
+#include <builtin.h>
 #include <pwd.h>
 
 void	gethome(t_tree *t)
@@ -108,7 +109,7 @@ t_sh	*init(char **env)
 	add_cmd(sh->cmd, cmd_builtin("cd", &cd));
 	add_cmd(sh->cmd, cmd_builtin("echo", NULL));
 	add_cmd(sh->cmd, cmd_builtin("env", NULL));
-	add_cmd(sh->cmd, cmd_builtin("exit", NULL));
+	add_cmd(sh->cmd, cmd_builtin("exit", &b_exit));
 	sh->cmd->value = c;
 	sh->env = init_env(env);
 	return (sh);

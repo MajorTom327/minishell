@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 02:58:27 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 05:03:20 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	exit_success(void);
 
 char	*get_pwd(t_sh *e);
 int		pwd(void *v_par, char **cmd);
-int		cd(void *env, char **cmd);
 
 char	**clean_cmd(char **cmd);
 int		execute(t_sh *sh, char **cmd);
