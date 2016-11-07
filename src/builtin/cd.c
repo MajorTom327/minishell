@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/06 05:46:19 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 04:26:25 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 07:37:59 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	oldpwdset(t_sh *e)
 	env_search(e->env, "OLDPWD")->value = ft_strdup(buff);
 }
 
-int		cd(void *env, char **cmd)
+int		b_cd(void *env, char **cmd)
 {
 	int		ret;
 	char	*path;

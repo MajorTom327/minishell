@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 05:01:47 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 05:36:38 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 07:51:46 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,13 @@ int			b_exit(void *env, char **cmd)
 	int		i;
 
 	sh = (t_sh *)env;
-	sf_free(sh->env, 1);
-	sf_free(sh->cmd, 0);
-	ft_strdel(&(sh->prompt));
-	ft_memdel((void **)&sh);
+	if (sh)
+	{
+		sf_free(sh->env, 1);
+		sf_free(sh->cmd, 0);
+		ft_strdel(&(sh->prompt));
+		ft_memdel((void **)&sh);
+	}
 	if (cmd)
 	{
 		i = -1;

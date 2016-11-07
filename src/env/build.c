@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 22:36:55 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/06 03:41:18 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 07:58:24 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ static int	sf_count(t_tree *t, int st)
 static char	**sf_envbuild(t_tree *t, int st)
 {
 	static int	i;
-	static char	**e;
+	static char	**e = NULL;
 
 	if (st)
 	{
+		ft_memdel((void **)&e);
 		exit_mem((void *)(e = (char **)ft_memalloc(sizeof(char *) * (st + 1))));
 		i = 0;
 		return (NULL);
@@ -58,6 +59,7 @@ char		**build(t_sh *e)
 	cnt = sf_count(e->env, 0);
 	sf_envbuild(NULL, cnt);
 	env = sf_envbuild(e->env, 0);
-	env[cnt] = NULL;
-	return (NULL);
+	ft_strdel(&env[cnt]);
+	//env[cnt] = NULL;
+	return (env);
 }

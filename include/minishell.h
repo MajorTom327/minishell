@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 05:03:20 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 07:30:23 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct		s_sh
 }					t_sh;
 
 int		hash(char *str);
-t_sh	*init(char **env);
+t_sh	*init(char **e);
 void	gethome(t_tree *t);
 t_tree	*default_env();
 t_tree	*init_env(char **env);

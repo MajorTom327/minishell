@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 05:20:42 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 05:34:02 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 07:28:38 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 
 static void	clearscreen(t_sh *sh, char *line, char *str)
 {
-	int	l;
-	int i;
-
 	ft_putstr("\033[2J\033[0;0f");
 	ft_putstr(sh->prompt);
 	ft_putstr(line);

@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/07 05:07:49 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/07 07:34:11 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME=minishell
 SRC_NAME = main.c\
 		   builtin/pwd.c\
 		   builtin/cd.c\
+		   builtin/env.c\
 		   builtin/exit.c\
 		   env/build.c\
 		   env/important.c\
@@ -35,7 +36,7 @@ SRC_NAME = main.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-DBG_OUTPUT = /dev/ttys002
+DBG_OUTPUT = /dev/ttys003
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 OBJ_SUB = env exec other tree input input/parse builtin
@@ -94,5 +95,7 @@ test: all
 	@clear
 	@clear > $(DBG_OUTPUT)
 	@echo "\033[32;4m`date`\033[0m\n" >> $(DBG_OUTPUT)
-	env -i ./$(NAME) 2>> $(DBG_OUTPUT)
+	./$(NAME) 2>> $(DBG_OUTPUT)
+#	env -i ./$(NAME) 2>> $(DBG_OUTPUT)
+
 .PHONY: fclean clean

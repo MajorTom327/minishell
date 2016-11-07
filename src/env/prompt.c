@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 01:28:55 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 02:41:37 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 07:59:41 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static int	get_prompt_env(t_sh *e)
 		prompt = ft_freejoin(prompt, pwd);
 		prompt = ft_freejoin(prompt, "\033[90m>\033[0m ");
 	}
+	ft_strdel(&(e->prompt));
 	e->prompt = ft_strdup(prompt);
 	ft_strdel(&prompt);
 	return ((e->prompt == NULL));

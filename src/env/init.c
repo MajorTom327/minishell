@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:30:02 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 05:08:05 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/07 07:41:50 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ t_tree	*init_env(char **env)
 ** 		and the builtin or eventualy alias
 */
 
-t_sh	*init(char **env)
+t_sh	*init(char **e)
 {
 	t_sh	*sh;
 	t_cmd	*c;
@@ -106,11 +106,11 @@ t_sh	*init(char **env)
 	c->type = SH_BUILTIN;
 	c->name = ft_strdup("pwd");
 	c->f = &pwd;
-	add_cmd(sh->cmd, cmd_builtin("cd", &cd));
-	add_cmd(sh->cmd, cmd_builtin("echo", NULL));
-	add_cmd(sh->cmd, cmd_builtin("env", NULL));
-	add_cmd(sh->cmd, cmd_builtin("exit", &b_exit));
 	sh->cmd->value = c;
-	sh->env = init_env(env);
+	add_cmd(sh->cmd, cmd_builtin("cd", &b_cd));
+	add_cmd(sh->cmd, cmd_builtin("echo", NULL));
+	add_cmd(sh->cmd, cmd_builtin("env", &b_env));
+	add_cmd(sh->cmd, cmd_builtin("exit", &b_exit));
+	sh->env = init_env(e);
 	return (sh);
 }
