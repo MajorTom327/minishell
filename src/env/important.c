@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 04:12:43 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 09:12:50 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/08 06:15:50 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	sf_pwdenv(t_tree *t, char *type)
 	str = ft_freejoin(str, "=");
 	str = ft_freejoin(str, buf);
 	add_env(t, str);
+	ft_strdel(&str);
 }
 
 void	important_var(char **env, t_tree *t)
@@ -39,10 +40,8 @@ void	important_var(char **env, t_tree *t)
 			a = a | 0x01;
 		else if (ft_strcmp(env[i], "OLDPWD") == 0)
 			a = a | 0x02;
-		else if (ft_strcmp(env[i], "SHLVL") == 0)
-			a = a | 0x04;
 		else if (ft_strcmp(env[i], "HOME") == 0)
-			a = a | 0x08;
+			a = a | 0x04;
 		i++;
 	}
 	if (!(a & 0x01))
@@ -50,7 +49,7 @@ void	important_var(char **env, t_tree *t)
 	if (!(a & 0x02))
 		sf_pwdenv(t, "OLDPWD");
 	if (!(a & 0x04))
-		add_env(t, "SHLVL=1");
-	if (!(a & 0x08))
 		gethome(t);
+	if (env_search(t, "SHLVL") == NULL)
+		add_env(t, "SHLVL=1");
 }

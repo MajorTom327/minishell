@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/07 09:09:48 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/08 06:05:48 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRC_NAME = main.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-DBG_OUTPUT = /dev/ttys003
+DBG_OUTPUT = /dev/ttys001
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 OBJ_SUB = env exec other tree input input/parse builtin
@@ -94,8 +94,9 @@ re: fclean all
 test: all
 	@clear
 	@clear > $(DBG_OUTPUT)
+	@$(CC) $(CFLAGS) ./printenv.c -o printenv
 	@echo "\033[32;4m`date`\033[0m\n" >> $(DBG_OUTPUT)
-#	./$(NAME) 2>> $(DBG_OUTPUT)
-	env -i ./$(NAME) 2>> $(DBG_OUTPUT)
+	./$(NAME) 2>> $(DBG_OUTPUT)
+#	env -i ./$(NAME) 2>> $(DBG_OUTPUT)
 
 .PHONY: fclean clean
