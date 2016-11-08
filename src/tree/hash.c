@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:22:35 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/03 02:01:06 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/08 10:46:29 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int	hash(char *str)
 	i = 0;
 	while (str[i])
 	{
+//		if (str[i] % 2)
 		l += str[i];
+//		else
+//			l -= str[i];
 		i++;
 	}
 	return (l);

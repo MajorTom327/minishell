@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 07:23:07 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 08:38:42 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/08 08:24:24 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	b_env(void *env, char **cd)
 	i = -1;
 	while (e[++i])
 		ft_putendl(e[i]);
+	dbg_var_int("b_env", "nb of env", i, 2);
 	//env_array_free(e);
 	return (sh->ret = 0);
 }

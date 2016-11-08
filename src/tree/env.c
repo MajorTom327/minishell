@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 02:12:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/08 06:12:48 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/08 10:51:42 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,20 @@ void	add_env(t_tree *t, char *str)
 	t_tree	*tmp;
 	t_env	*env;
 
-	dbg_var_str("add_env", "env str", str, 2);
+//	key = ft_strdup(str);
+//	dbg_var_str("add_env", "env str", str, 2);
+//	exit_mem((env = (t_env *)ft_memalloc(sizeof(t_env))));
+//	dbg_var_str("add_env", "env str", str, 2);
+//	set_key(env, key);
+//	m_hash = hash(str);
+//	tmp = tree_add(t, m_hash);
+//	tmp->hash = m_hash;
+//	tmp->value = (void *)env;
 	key = ft_strdup(str);
 	value = ft_strchr(key, '=') + 1;
 	*(value - 1) = '\0';
 	m_hash = hash(key);
+	printf("%d\t-\t%s\n", m_hash, key);
 	tmp = tree_add(t, m_hash);
 	tmp->hash = m_hash;
 	exit_mem(env = (t_env *)ft_memalloc(sizeof(t_env)));

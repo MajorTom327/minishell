@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 04:12:43 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/08 06:15:50 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/08 08:20:57 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	important_var(char **env, t_tree *t)
 			a = a | 0x04;
 		i++;
 	}
-	if (!(a & 0x01))
+	if (env_search(t, "PWD") == NULL)
 		sf_pwdenv(t, "PWD");
-	if (!(a & 0x02))
+	if (env_search(t, "OLDPWD") == NULL)
 		sf_pwdenv(t, "OLDPWD");
-	if (!(a & 0x04))
+	if (env_search(t, "HOME") == NULL)
 		gethome(t);
 	if (env_search(t, "SHLVL") == NULL)
 		add_env(t, "SHLVL=1");

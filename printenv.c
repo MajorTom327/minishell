@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdio.h>
 
 void	putstr(char *str)
 {
@@ -30,5 +31,7 @@ int main(int ac, char **av, char **environ)
 		putstr(environ[i]);
 		i++;
 	}
+	printf("\e[31mnb of env var: %d\e[0m\n", i);
+	fflush(stdin);
 	return (0);
 }

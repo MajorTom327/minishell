@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:30:02 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 09:13:13 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/08 10:44:38 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ t_tree	*default_env()
 {
 	t_tree *t;
 	t_env	*e;
-	char	*key;
 	char	tmp[1024];
 	char	*tmp2[2];
 
@@ -74,8 +73,12 @@ t_tree	*init_env(char **env)
 	e->value = ft_strdup(value);
 	t->value = (void *)e;
 	while (env[++i])
+	{
+		//dbg_var_str("init_env", "env[i]", env[i], 2);
 		add_env(t, env[i]);
-	important_var(env, t);
+	}
+	dbg_var_int("init_env", "i", i, 2);
+	//important_var(env, t);
 	return (t);
 }
 
