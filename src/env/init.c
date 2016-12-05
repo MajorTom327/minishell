@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:30:02 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/08 10:44:38 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/05 02:29:22 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ t_tree	*init_env(char **env)
 		add_env(t, env[i]);
 	}
 	dbg_var_int("init_env", "i", i, 2);
-	//important_var(env, t);
+	important_var(env, t);
 	return (t);
 }
 

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/06 05:46:19 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 07:37:59 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/05 02:27:14 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	oldpwdset(t_sh *e)
 	char buff[1024];
 
 	getcwd(buff, 1024);
+	if (env_search(e->env, "OLDPWD") == NULL)
+		sf_pwdenv(e->env, "OLDPWD");
 	env_search(e->env, "OLDPWD")->value = ft_strdup(buff);
 }
 
@@ -50,7 +52,9 @@ int		b_cd(void *env, char **cmd)
 		else
 			path = ft_strdup(cmd[1]);
 	}
+	dbg_info("cd", "BEFORE OLDPWD", 3);
 	oldpwdset(e);
+	dbg_info("cd", "AFTER OLDPWD", 3);
 	ret = chdir(path);
 	if (ret != 0)
 	{

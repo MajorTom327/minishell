@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 04:38:24 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/08 06:24:57 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/05 02:26:44 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <minishell.h>
 # include <tree.h>
 
+void	sf_pwdenv(t_tree *t, char *type);
 void	important_var(char **env, t_tree *t);
 
 void	add_env(t_tree *t, char *str);

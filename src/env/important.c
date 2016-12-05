@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 04:12:43 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/08 08:20:57 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/05 02:26:27 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <minishell.h>
 #include <libft.h>
 
-static void	sf_pwdenv(t_tree *t, char *type)
+void	sf_pwdenv(t_tree *t, char *type)
 {
 	char *str;
 	char buf[1024];
