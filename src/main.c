@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:07:37 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 03:21:22 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/06 03:55:53 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int ac, char **av, char **env)
 
 	dbg_title("init");
 	sh.env = init_env(env);
+	sh.cmd = init_cmd(&sh);
 	dbg_title("terminal init");
 	//terminal(sh);
 	dbg_title("loop");

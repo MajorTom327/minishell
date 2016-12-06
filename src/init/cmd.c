@@ -6,11 +6,12 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:39:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 03:54:19 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/06 03:57:09 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
+#include <libft.h>
 
 static void	sf_inithash(t_cmd *cmd)
 {
@@ -54,6 +55,9 @@ t_cmd	*init_cmd(t_sh *sh)
 	sf_initfunction(cmd);
 	i = 0;
 	while (i < BUILTIN_NB)//INIT PARAM
+	{
+		dbg_var_str("init_cmd", "current builtin", cmd[i].name, 2);
 		cmd[i++].param = (void *)sh;
-	return (cmd)
+	}
+	return (cmd);
 }
