@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 03:05:44 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/06 03:33:30 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 # define VK_RIGHT	67
 # define VK_DOWN	66
 
-#include <tree.h>
 #include <termios.h>
 #include <debug.h>
 
 typedef struct		s_cmd
 {
 	int				type;
+	int				hash;
 	char			*name;
 	char			*exec;
 	int				(*f)(void *, char **);
@@ -35,6 +35,7 @@ typedef struct		s_cmd
 
 typedef struct		s_env
 {
+	int				hash;
 	char			*key;
 	char			*value;
 }					t_env;
@@ -47,9 +48,14 @@ typedef struct		s_sh
 	int				ret;
 }					t_sh;
 
+int		hash(const char *str);
+
+t_env	*init_env(char **environ);
+
 void	loop(t_sh *sh);
 void	terminal(t_sh *sh);
 
+char	**clean_cmd(char **cmd);
 void	input(char *str, int l, char *line, t_sh *sh);
 char	*strdelete(char *dst, char *src);
 int		get_command(char **line, t_sh *sh);

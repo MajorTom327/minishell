@@ -6,40 +6,27 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/08 06:05:48 by vthomas          ###   ########.fr        #
+#    Updated: 2016/12/06 03:33:01 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=minishell
 
 SRC_NAME = main.c\
-		   builtin/pwd.c\
-		   builtin/cd.c\
-		   builtin/env.c\
-		   builtin/exit.c\
-		   env/build.c\
-		   env/important.c\
-		   env/init.c\
-		   env/key.c\
-		   env/prompt.c\
-		   env/terminal.c\
-		   exec/execute.c\
+		   init/env.c\
 		   input/input.c\
 		   input/get_command.c\
 		   input/parse/clean.c\
 		   other/exit.c\
-		   other/loop.c\
-		   tree/cmd.c\
-		   tree/env.c\
-		   tree/hash.c\
-		   tree/tree.c
+		   other/hash.c\
+		   other/loop.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
 DBG_OUTPUT = /dev/ttys001
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
-OBJ_SUB = env exec other tree input input/parse builtin
+OBJ_SUB = builtin init input input/parse other
 
 SRC=$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ=$(addprefix $(OBJ_PATH),$(OBJ_NAME))

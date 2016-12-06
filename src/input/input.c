@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 05:20:42 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/08 09:12:07 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/06 03:24:18 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		input(char *str, int l, char *line, t_sh *sh)
 	if (str[0] == 12)
 		clearscreen(sh, line, str);
 	else if (str[0] == 4 || str[0] == 3)
-		b_exit((void *)sh, NULL);
+		exit(EXIT_SUCCESS);
 	else if (ft_strncmp(str, "\033[", 2) == 0)
 	{
 		if (str[2] == VK_UP)
