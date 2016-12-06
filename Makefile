@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/12/06 03:33:01 by vthomas          ###   ########.fr        #
+#    Updated: 2016/12/06 03:55:11 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME=minishell
 
 SRC_NAME = main.c\
 		   init/env.c\
+		   init/cmd.c\
 		   input/input.c\
 		   input/get_command.c\
 		   input/parse/clean.c\
