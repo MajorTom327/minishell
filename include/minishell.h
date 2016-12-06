@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 06:26:23 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/06 08:11:29 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct		s_sh
 	t_cmd			*cmd;
 	char			*prompt;
 	int				ret;
+	int				env_l;
 }					t_sh;
 
 int		hash(const char *str);

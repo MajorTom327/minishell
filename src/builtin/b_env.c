@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 04:40:12 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 05:06:29 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/06 08:17:54 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ int		b_env(void *env, char **cmd)
 	(void)cmd;
 	sh = (t_sh *)env;
 	i = 0;
-	dbg_info("b_env", "Start show env", 3);
-	while (sh->env[i].key != NULL)
+	dbg_title("b_env");
+	while (i < sh->env_l)
 	{
-		dbg_var_str("b_env", "current key", sh->env[i].key, 3);
-		ft_putstr(sh->env[i].key);
+		dbg_var_str("b_env", "current key", (sh->env[i]).key, 3);
+		ft_putstr((sh->env[i]).key);
 		ft_putchar('=');
-		ft_putendl(sh->env[i].value);
+		ft_putendl((sh->env[i]).value);
 		i++;
 	}
-	dbg_info("b_env", "end show env", 3);
+	dbg_title("b_env finished");
 	return (0);
 }
