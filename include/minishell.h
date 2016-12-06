@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 03:54:42 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/06 04:25:33 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,11 @@ int		hash(const char *str);
 t_env	*init_env(char **environ);
 t_cmd	*init_cmd(t_sh *sh);
 
+t_env	*env_imp(t_env *env);
+t_env	*add_env(t_env *env, const char *name, const char *value);
+
 void	loop(t_sh *sh);
 void	terminal(t_sh *sh);
-
-char	**clean_cmd(char **cmd);
-void	input(char *str, int l, char *line, t_sh *sh);
-char	*strdelete(char *dst, char *src);
-int		get_command(char **line, t_sh *sh);
 
 void	exit_mem(void *mem);
 void	exit_success(void);

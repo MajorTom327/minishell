@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   b_env.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 22:07:37 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 04:53:48 by vthomas          ###   ########.fr       */
+/*   Created: 2016/12/06 04:40:12 by vthomas           #+#    #+#             */
+/*   Updated: 2016/12/06 05:06:29 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minishell.h>
 #include <libft.h>
 #include <builtin.h>
+#include <minishell.h>
+#include <debug.h>
 
-int	main(int ac, char **av, char **env)
+int		b_env(void *env, char **cmd)
 {
-	t_sh sh;
-
-	dbg_title("init");
-	sh.env = init_env(env);
-	sh.cmd = init_cmd(&sh);
-	dbg_title("init finished");
-	//terminal(sh);
+	t_sh	*sh;
 	int		i;
 
+	(void)cmd;
+	sh = (t_sh *)env;
 	i = 0;
 	dbg_info("b_env", "Start show env", 3);
-	while (sh.env[i].key != NULL)
+	while (sh->env[i].key != NULL)
 	{
-		dbg_var_str("b_env", "current key", sh.env[i].key, 3);
-		ft_putstr(sh.env[i].key);
+		dbg_var_str("b_env", "current key", sh->env[i].key, 3);
+		ft_putstr(sh->env[i].key);
 		ft_putchar('=');
-		ft_putendl(sh.env[i].value);
+		ft_putendl(sh->env[i].value);
 		i++;
 	}
-	//b_env((void *)&sh, NULL);
-	dbg_title("loop");
-	//loop(sh);
+	dbg_info("b_env", "end show env", 3);
 	return (0);
 }

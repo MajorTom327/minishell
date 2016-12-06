@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_command.c                                      :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/04 00:56:36 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 02:55:28 by vthomas          ###   ########.fr       */
+/*   Created: 2016/06/10 00:43:18 by vthomas           #+#    #+#             */
+/*   Updated: 2016/12/06 04:36:08 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-#include <minishell.h>
+#include <get_next_line.h>
 #include <libft.h>
-
-/*
-** This file containnig a modded version of get_next_line for get a full command
-** with cannonical implementation and parsing for the signalslike '^L'
-*/
 
 static void	sf_repos(char **str)
 {
@@ -87,26 +82,25 @@ static int	sf_finaltest(int ret, char **line, char *tmp)
 	return (1);
 }
 
-int			get_command(char **line, t_sh *sh)
+int			get_next_line(const int fd, char **line)
 {
 	int		ret;
 	char	*tmp;
 
-	if (0 < 0 || line == NULL)
+	if (fd < 0 || line == NULL)
 		return (-1);
 	if ((ret = sf_save(line, 1)) == 1)
 		return (1);
 	else if (ret == 0)
 		*line = ft_strnew(0);
-	ret = 4;
-	tmp = ft_strnew(4);
-	while ((ret = read(0, tmp, 4)) != 0)
+	ret = BUFF_SIZE;
+	tmp = ft_strnew(BUFF_SIZE);
+	while ((ret = read(fd, tmp, BUFF_SIZE)) != 0)
 	{
 		if (ret == -1)
 			return (-1);
 		tmp[ret] = '\0';
-		input(tmp, (int)ft_strlen(*line), *line, sh);
-		*line = strdelete(*line, tmp);
+		*line = ft_freejoin(*line, tmp);
 		if (ft_strchr(tmp, '\n'))
 			break ;
 		ft_strclr(tmp);
