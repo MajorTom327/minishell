@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_env.c                                            :+:      :+:    :+:   */
+/*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/06 04:40:12 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/07 00:27:12 by vthomas          ###   ########.fr       */
+/*   Created: 2016/12/07 00:32:30 by vthomas           #+#    #+#             */
+/*   Updated: 2016/12/07 00:45:21 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <builtin.h>
 #include <minishell.h>
-#include <debug.h>
+#include <unistd.h>
+#include <libft.h>
 
-int		b_env(void *env, char **cmd)
+int	get_prompt(t_sh *sh)
 {
-	t_sh	*sh;
-	int		i;
+	char	buf[1024];
 
-	(void)cmd;
-	sh = (t_sh *)env;
-	i = 0;
-	dbg_title("b_env");
-	while (i < sh->env_l)
-	{
-		//dbg_var_str("b_env", "current key", (sh->env[i]).key, 3);
-		ft_putstr((sh->env[i]).key);
-		ft_putchar('=');
-		ft_putendl((sh->env[i]).value);
-		i++;
-	}
-	dbg_title("b_env finished");
+	ft_strdel(&(sh->prompt));
+	sh->prompt = ft_strdup("\e[90mminishell");//change by username
+	getcwd(buf, 1024);
+	sh->prompt = ft_freejoin(sh->prompt, ((sh->ret) ? "\e[31m" : "\e[32m"));
+	sh->prompt = ft_freejoin(sh->prompt, ":\e[34m");
+	sh->prompt = ft_freejoin(sh->prompt, buf);
+	sh->prompt = ft_freejoin(sh->prompt, "\033[90m>\e[0m ");
 	return (0);
 }

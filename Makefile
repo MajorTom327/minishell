@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/12/06 04:48:02 by vthomas          ###   ########.fr        #
+#    Updated: 2016/12/07 00:39:11 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,10 @@ NAME=minishell
 
 SRC_NAME = main.c\
 		   builtin/b_env.c\
+		   init/cmd.c\
 		   init/env.c\
 		   init/env_imp.c\
-		   init/cmd.c\
+		   init/prompt.c\
 		   input/get_next_line.c\
 		   input/parse/clean.c\
 		   other/exit.c\
@@ -25,7 +26,7 @@ SRC_NAME = main.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-DBG_OUTPUT = /dev/ttys001
+DBG_OUTPUT = /dev/ttys002
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 OBJ_SUB = builtin init input input/parse other
