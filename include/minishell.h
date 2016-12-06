@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/07 07:30:23 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/06 03:05:44 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,11 @@ typedef struct		s_env
 
 typedef struct		s_sh
 {
-	t_tree			*env;
-	t_tree			*cmd;
+	t_env			*env;
+	t_cmd			*cmd;
 	char			*prompt;
 	int				ret;
 }					t_sh;
-
-int		hash(char *str);
-t_sh	*init(char **e);
-void	gethome(t_tree *t);
-t_tree	*default_env();
-t_tree	*init_env(char **env);
 
 void	loop(t_sh *sh);
 void	terminal(t_sh *sh);
@@ -59,15 +53,8 @@ void	terminal(t_sh *sh);
 void	input(char *str, int l, char *line, t_sh *sh);
 char	*strdelete(char *dst, char *src);
 int		get_command(char **line, t_sh *sh);
-int		get_prompt(t_sh *e);
 
 void	exit_mem(void *mem);
 void	exit_success(void);
-
-char	*get_pwd(t_sh *e);
-int		pwd(void *v_par, char **cmd);
-
-char	**clean_cmd(char **cmd);
-int		execute(t_sh *sh, char **cmd);
 
 #endif
