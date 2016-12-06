@@ -1,6 +1,8 @@
 #include <unistd.h>
 #include <stdio.h>
 
+extern char **environ;
+
 void	putstr(char *str)
 {
 	int i;
@@ -19,7 +21,7 @@ void	putstr(char *str)
 	write(1, "\e[0m\n", 5);
 }
 
-int main(int ac, char **av, char **environ)
+int main(int ac, char **av)
 {
 	int i;
 

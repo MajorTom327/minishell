@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 04:25:33 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/06 06:26:23 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct		s_sh
 
 int		hash(const char *str);
 
-t_env	*init_env(char **environ);
+t_env	*init_env(t_sh *sh, char **environ);
 t_cmd	*init_cmd(t_sh *sh);
 
 t_env	*env_imp(t_env *env);
