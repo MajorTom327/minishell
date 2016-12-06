@@ -6,19 +6,18 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:13:47 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 08:29:18 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/06 10:03:31 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 #include <libft.h>
-//#include <builtin.h>
 #include <debug.h>
 
 static void	sf_parseenv(char *e, char **key, char **value)
 {
 	int i;
-	char *tmp;
+	//char *tmp;
 
 	i = 0;
 	while (e[i] != '=')
@@ -30,7 +29,7 @@ static void	sf_parseenv(char *e, char **key, char **value)
 
 t_env	*init_env(t_sh *sh, char **environ)
 {
-	char	*tmp;
+//	char	*tmp;
 	int		i;
 
 	i = 0;
@@ -42,8 +41,8 @@ t_env	*init_env(t_sh *sh, char **environ)
 	while (environ[i])//tant que l'on est pas arriver a NULL
 	{
 		sf_parseenv(environ[i], &(sh->env[i].key), &(sh->env[i].value));
-		dbg_var_str("init_env", "current var", (sh->env[i]).key, 2);
-		dbg_var_str("init_env", "current env", environ[i], 2);
+//		dbg_var_str("init_env", "current var", (sh->env[i]).key, 2);
+//		dbg_var_str("init_env", "current env", environ[i], 2);
 		i++;//passe a la variable suivante
 	}
 	sh->env_l = i;
@@ -60,8 +59,8 @@ t_env	*init_env(t_sh *sh, char **environ)
 //		ft_putendl("\033[0m");
 //		i++;
 //	}
-	b_env(sh, NULL);
+	//b_env(sh, NULL);
 	dbg_info("init_env", "ended with success !", 2);
-	//env = env_imp(env);
+	env_imp(sh);
 	return (sh->env);
 }

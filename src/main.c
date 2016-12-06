@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:07:37 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 06:33:57 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/06 08:43:06 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av, char **env)
 //		ft_putendl(sh.env[i].value);
 //		i++;
 //	}
-	//b_env((void *)&sh, NULL);
+	b_env((void *)&sh, NULL);
 	dbg_title("loop");
 	//loop(sh);
 	return (0);
