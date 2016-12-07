@@ -6,12 +6,13 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:39:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 03:57:09 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/07 04:33:15 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 #include <libft.h>
+#include <builtin.h>
 
 static void	sf_inithash(t_cmd *cmd)
 {
@@ -36,12 +37,12 @@ static void	sf_initname(t_cmd *cmd)
 //TODO: Add function
 static void	sf_initfunction(t_cmd *cmd)
 {
-//	cmd[0]->f = ;
-//	cmd[1]->f = ;
-//	cmd[2]->f = ;
-//	cmd[3]->f = ;
-//	cmd[4]->f = ;
-//	cmd[5]->f = ;
+	cmd[0].f = NULL;
+	cmd[1].f = NULL;
+	cmd[2].f = NULL;
+	cmd[3].f = b_env;
+	cmd[4].f = NULL;
+	cmd[5].f = NULL;
 }
 
 t_cmd	*init_cmd(t_sh *sh)

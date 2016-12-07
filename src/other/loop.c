@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 04:50:47 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/07 02:39:12 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/07 04:30:00 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	loop(t_sh *sh)
 			continue ;
 		}
 		dbg_var_array_str("loop", "cmd", cmd, 2);
+		execute(sh, cmd);
 		sf_deletecmd(cmd);
-//		execute(sh, cmd);
 		ft_strdel(&buf);
 		if (get_prompt(sh))
 			exit(EXIT_FAILURE);

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cmd_search.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 22:07:37 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/07 04:43:40 by vthomas          ###   ########.fr       */
+/*   Created: 2016/12/07 04:14:15 by vthomas           #+#    #+#             */
+/*   Updated: 2016/12/07 04:30:27 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 #include <libft.h>
-#include <builtin.h>
 
-int	main(int ac, char **av, char **env)
+int	cmd_search(t_sh *sh, const char *str)
 {
-	t_sh sh;
+	int i;
 
-	dbg_title("init");
-	init_env(&sh, env);
-	sh.cmd = init_cmd(&sh);
-	sh.progname = ft_strdup(av[0]);
-	sh.home = NULL;
-	dbg_title("init finished");
-	dbg_var_str("main", "sh.progname", sh.progname, 1);
-	dbg_title("loop");
-	loop(&sh);
-	return (0);
+	i = 0;
+	while (i < BUILTIN_NB)
+	{
+		if (ft_strcmp(sh->cmd[i].name, str) == 0)
+		{
+			break;
+		}
+		i++;
+	}
+	return ((i < BUILTIN_NB) ? i : -1);
 }

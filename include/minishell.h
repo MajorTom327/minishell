@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/07 01:41:17 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/07 04:36:18 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct		s_sh
 {
 	t_env			*env;
 	t_cmd			*cmd;
+	char			*progname;
 	char			*prompt;
 	char			*home;
 	int				ret;
@@ -58,10 +59,11 @@ char	*get_home(t_sh *sh);
 t_env	*env_imp(t_sh *sh);
 t_env	*add_env(t_sh *sh, const char *name, const char *value);
 int		env_search(t_sh *sh, const char *str);
+int		cmd_search(t_sh *sh, const char *str);
 
 void	loop(t_sh *sh);
 char	**clean_cmd(char **cmd);
-void	terminal(t_sh *sh);
+int		execute(t_sh *sh, char **cmd);
 
 void	exit_mem(void *mem);
 void	exit_success(void);
