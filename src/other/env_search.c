@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   env_search.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 22:07:37 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/07 01:13:08 by vthomas          ###   ########.fr       */
+/*   Created: 2016/12/07 00:49:03 by vthomas           #+#    #+#             */
+/*   Updated: 2016/12/07 00:51:10 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 #include <libft.h>
-#include <builtin.h>
 
-int	main(int ac, char **av, char **env)
+int	env_search(t_sh *sh, const char *str)
 {
-	t_sh sh;
+	int i;
 
-	dbg_title("init");
-	init_env(&sh, env);
-	sh.cmd = init_cmd(&sh);
-	dbg_title("init finished");
-	sh.home = NULL;
-	//b_env((void *)&sh, NULL);
-	dbg_title("loop");
-	loop(&sh);
-	return (0);
+	i = 0;
+	while (i < sh->env_l)
+	{
+		if (ft_strcmp(sh->env[i].key, str) == 0)
+			break;
+		i++;
+	}
+	return ((i != sh->env_l) ? i : -1);
 }

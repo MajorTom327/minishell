@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/12/07 00:39:11 by vthomas          ###   ########.fr        #
+#    Updated: 2016/12/07 00:51:35 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC_NAME = main.c\
 		   init/prompt.c\
 		   input/get_next_line.c\
 		   input/parse/clean.c\
+		   other/env_search.c\
 		   other/exit.c\
 		   other/hash.c\
 		   other/loop.c
