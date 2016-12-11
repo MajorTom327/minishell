@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/12/11 03:19:54 by vthomas          ###   ########.fr        #
+#    Updated: 2016/12/11 05:21:36 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC_NAME = main.c\
 		   other/execute.c\
 		   other/exit.c\
 		   other/hash.c\
-		   other/loop.c
+		   other/loop.c\
+		   other/prog_search.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

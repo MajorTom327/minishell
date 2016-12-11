@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/11 05:01:28 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/11 05:31:39 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,12 @@ t_env	*env_imp(t_sh *sh);
 t_env	*add_env(t_sh *sh, const char *name, const char *value);
 int		env_search(t_sh *sh, const char *str);
 int		cmd_search(t_sh *sh, const char *str);
+int		prog_search(t_sh *sh, char **cmd);
 
 void	loop(t_sh *sh);
 char	**clean_cmd(char **cmd);
 int		execute(t_sh *sh, char **cmd);
+int		execute_exe(t_sh *sh, char **cmd);
 
 void	exit_mem(void *mem);
 void	exit_success(void);
