@@ -6,14 +6,13 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 04:40:12 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/07 00:27:12 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/11 05:02:02 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <builtin.h>
 #include <minishell.h>
-#include <debug.h>
 
 int		b_env(void *env, char **cmd)
 {

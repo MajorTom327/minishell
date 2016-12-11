@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin.h                                          :+:      :+:    :+:   */
+/*   b_pwd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 05:02:11 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/11 03:19:38 by vthomas          ###   ########.fr       */
+/*   Created: 2016/12/11 03:00:45 by vthomas           #+#    #+#             */
+/*   Updated: 2016/12/11 03:08:46 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUILTIN_H
-# define BUILTIN_H
+#include <minishell.h>
+#include <libft.h>
+#include <builtin.h>
 
-int		b_cd(void *env, char **cmd);
-int		b_exit(void *env, char **cmd);
-int		b_echo(void *env, char **cmd);
-int		b_pwd(void *env, char **cmd);
-int		b_env(void *env, char **cmd);
+int		b_pwd(void *env, char **cmd)
+{
+	char buff[1024];
 
-#endif
+	(void)env;
+	(void)cmd;
+	getcwd(buff, 1024);
+	ft_putendl(buff);
+	return (0);
+}

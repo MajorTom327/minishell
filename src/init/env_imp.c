@@ -6,13 +6,12 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 04:06:23 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 10:07:33 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/11 05:02:24 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 #include <libft.h>
-#include <debug.h>
 
 t_env		*add_env(t_sh *sh, const char *name, const char *value)
 {

@@ -6,13 +6,12 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:13:47 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/06 10:03:31 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/11 05:02:12 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 #include <libft.h>
-#include <debug.h>
 
 static void	sf_parseenv(char *e, char **key, char **value)
 {

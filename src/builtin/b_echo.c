@@ -1,22 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin.h                                          :+:      :+:    :+:   */
+/*   b_echo.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 05:02:11 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/11 03:19:38 by vthomas          ###   ########.fr       */
+/*   Created: 2016/12/11 03:11:49 by vthomas           #+#    #+#             */
+/*   Updated: 2016/12/11 03:27:02 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUILTIN_H
-# define BUILTIN_H
+#include <minishell.h>
+#include <libft.h>
+#include <builtin.h>
 
-int		b_cd(void *env, char **cmd);
-int		b_exit(void *env, char **cmd);
-int		b_echo(void *env, char **cmd);
-int		b_pwd(void *env, char **cmd);
-int		b_env(void *env, char **cmd);
+int	b_echo(void *env, char **cmd)
+{
+	int i;
+	int param;
 
-#endif
+	i = 1;
+	if (cmd[i] != NULL && cmd[i][0] == '-')
+	{
+		param = (cmd[i][1] == 'n') ? 1 : 0;
+		i++;
+	}
+	else
+		param = 0;
+	while (cmd[i])
+	{
+		ft_putstr(cmd[i]);
+		i++;
+		if (cmd[i])
+			ft_putchar(' ');
+	}
+	if (!param)
+		ft_putchar('\n');
+	return (0);
+}

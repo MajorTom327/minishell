@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:39:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/07 04:33:15 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/11 03:20:05 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ static void	sf_initname(t_cmd *cmd)
 //TODO: Add function
 static void	sf_initfunction(t_cmd *cmd)
 {
-	cmd[0].f = NULL;
+	cmd[0].f = b_echo;
 	cmd[1].f = NULL;
 	cmd[2].f = NULL;
 	cmd[3].f = b_env;
 	cmd[4].f = NULL;
-	cmd[5].f = NULL;
+	cmd[5].f = b_pwd;
 }
 
 t_cmd	*init_cmd(t_sh *sh)
