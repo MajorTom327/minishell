@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:39:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 02:38:30 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 02:52:09 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	sf_initfunction(t_cmd *cmd)
 	cmd[e_setenv].f = NULL;
 	cmd[e_unsetenv].f = NULL;
 	cmd[e_env].f = b_env;
-	cmd[e_cd].f = NULL;
+	cmd[e_cd].f = b_cd;
 	cmd[e_pwd].f = b_pwd;
 	cmd[e_exit].f = b_exit;
 	cmd[e_builtin].f = b_builtin;

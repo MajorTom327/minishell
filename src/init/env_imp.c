@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 04:06:23 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/11 05:02:24 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 02:59:58 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,22 @@ static void	sf_initshlvl(t_sh *sh)
 	ft_strdel(&(sh->env[i].value));
 	sh->env[i].value = ft_itoa(value);
 }
+static void	sf_envimp(int found_var, t_sh *sh)
+{
+	char buf[1024];
 
-t_env	*env_imp(t_sh *sh)
+	getcwd(buf, 1024);
+	if (!(found_var & 0x01))
+		sh->env = add_env(sh, "SHLVL", "1");
+	else
+		sf_initshlvl(sh);
+	if (!(found_var & 0x02))
+		sh->env = add_env(sh, "PWD", buf);
+	if (!(found_var & 0x04))
+		sh->env = add_env(sh, "OLDPWD", buf);
+}
+
+t_env		*env_imp(t_sh *sh)
 {
 	t_env	*env;
 	int		found_var;
@@ -80,13 +94,6 @@ t_env	*env_imp(t_sh *sh)
 		i++;
 	}
 	dbg_var_int("env_imp", "after while", found_var, 3);
-//	if (!(found_var & 0x01))
-//		env = add_env(sh, "SHLVL", "1");
-//	else
-//		sf_initshlvl(sh);
-//	if (!(found_var & 0x02))
-//		env = add_env(sh, "PWD", "/Users/vthomas");
-	if (!(found_var & 0x04))
-		env = add_env(sh, "OLDPWD", "/Users/vthomas");
+	sf_envimp(found_var, sh);
 	return (env);
 }
