@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 03:33:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 03:36:32 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 04:25:21 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 int		b_dotdot(void *env, char **cmd)
 {
-	char **str;
+	char	**str;
+	int		r;
 
 	(void)cmd;
 	str = ft_strsplit("cd ..", ' ');
-	b_cd(env, str);
-	ft_strdel(&str[0]);
-	ft_strdel(&str[1]);
-	ft_strdel(&str[2]);
+	r = b_cd(env, str);
+	ft_strtabdel(str);
 	ft_memdel((void **)&str);
+	return (r);
 }
