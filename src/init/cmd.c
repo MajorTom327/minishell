@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:39:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 01:42:07 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 02:38:30 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,39 @@
 
 static void	sf_inithash(t_cmd *cmd)
 {
-	cmd[0].hash = hash("echo");
-	cmd[1].hash = hash("setenv");
-	cmd[2].hash = hash("unsetenv");
-	cmd[3].hash = hash("env");
-	cmd[4].hash = hash("cd");
-	cmd[5].hash = hash("pwd");
-	cmd[6].hash = hash("exit");
-	cmd[7].hash = hash("builtin");
+	cmd[e_echo].hash = hash("echo");
+	cmd[e_setenv].hash = hash("setenv");
+	cmd[e_unsetenv].hash = hash("unsetenv");
+	cmd[e_env].hash = hash("env");
+	cmd[e_cd].hash = hash("cd");
+	cmd[e_pwd].hash = hash("pwd");
+	cmd[e_exit].hash = hash("exit");
+	cmd[e_builtin].hash = hash("builtin");
 }
 
 static void	sf_initname(t_cmd *cmd)
 {
-	cmd[0].name = ft_strdup("echo");
-	cmd[1].name = ft_strdup("setenv");
-	cmd[2].name = ft_strdup("unsetenv");
-	cmd[3].name = ft_strdup("env");
-	cmd[4].name = ft_strdup("cd");
-	cmd[5].name = ft_strdup("pwd");
-	cmd[6].name = ft_strdup("exit");
-	cmd[7].name = ft_strdup("builtin");
+	cmd[e_echo].name = ft_strdup("echo");
+	cmd[e_setenv].name = ft_strdup("setenv");
+	cmd[e_unsetenv].name = ft_strdup("unsetenv");
+	cmd[e_env].name = ft_strdup("env");
+	cmd[e_cd].name = ft_strdup("cd");
+	cmd[e_pwd].name = ft_strdup("pwd");
+	cmd[e_exit].name = ft_strdup("exit");
+	cmd[e_builtin].name = ft_strdup("builtin");
 }
 
 //TODO: Add function
 static void	sf_initfunction(t_cmd *cmd)
 {
-	cmd[0].f = b_echo;
-	cmd[1].f = NULL;
-	cmd[2].f = NULL;
-	cmd[3].f = b_env;
-	cmd[4].f = NULL;
-	cmd[5].f = b_pwd;
-	cmd[6].f = b_exit;
-	cmd[7].f = b_builtin;
+	cmd[e_echo].f = b_echo;
+	cmd[e_setenv].f = NULL;
+	cmd[e_unsetenv].f = NULL;
+	cmd[e_env].f = b_env;
+	cmd[e_cd].f = NULL;
+	cmd[e_pwd].f = b_pwd;
+	cmd[e_exit].f = b_exit;
+	cmd[e_builtin].f = b_builtin;
 }
 
 t_cmd	*init_cmd(t_sh *sh)

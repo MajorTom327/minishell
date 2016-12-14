@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 01:38:30 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 01:47:06 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 01:52:34 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <minishell.h>
 #include <libft.h>
 
+//TODO: remove color
 int		b_builtin(void *env, char **cmd)
 {
 	t_sh *sh;
