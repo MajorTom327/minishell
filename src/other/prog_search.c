@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 03:30:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 03:59:56 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 22:25:21 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,8 @@ int			prog_search(t_sh *sh, char **cmd)
 		cmd[0] = ft_freejoin(cmd[0], tmp);
 		ft_strdel(&tmp);
 	}
-	return ((!dir[i]) ? -1 : 0);
+	i = (!dir[i]) ? -1 : 0;
+	ft_strtabdel(dir);
+	ft_memdel((void **)&dir);
+	return (i);
 }

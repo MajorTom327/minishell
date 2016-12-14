@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/12/14 21:35:22 by vthomas          ###   ########.fr        #
+#    Updated: 2016/12/14 22:13:53 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRC_NAME = main.c\
 		   builtin/b_env.c\
 		   builtin/b_exit.c\
 		   builtin/b_pwd.c\
+		   builtin/b_setenv.c\
+		   builtin/parseenv.c\
 		   init/cmd.c\
 		   init/env.c\
 		   init/env_imp.c\

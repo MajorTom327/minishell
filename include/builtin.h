@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 05:02:11 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 03:38:03 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 22:16:16 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ enum	e_builtin
 	e_dotdot
 };
 
+char	**parseenv(char **cmd);
+
 int		b_cd(void *env, char **cmd);
 int		b_exit(void *env, char **cmd);
 int		b_echo(void *env, char **cmd);
 int		b_pwd(void *env, char **cmd);
 int		b_env(void *env, char **cmd);
+int		b_setenv(void *env, char **cmd);
 int		b_builtin(void *env, char **cmd);
 int		b_dotdot(void *env, char **cmd);
 
