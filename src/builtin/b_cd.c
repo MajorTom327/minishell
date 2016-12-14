@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 02:48:21 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 04:23:04 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 21:37:25 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int			b_cd(void *env, char **cmd)
 	sh = (t_sh *)env;
 	d = (cmd[1] && ft_strcmp(cmd[1], "--") && cmd[1][0] == '-' && cmd[1][1]) ?
 	2 : 1;
-	if (cmd[1] == NULL || !ft_strcmp(cmd[d], "--") || !ft_strcmp(cmd[d], "~"))
+	if (cmd[d] == NULL || !ft_strcmp(cmd[d], "--") || !ft_strcmp(cmd[d], "~"))
 		i = sf_chdir(sh->home, sh);
 	else if (!ft_strcmp(cmd[d], "-"))
 	{

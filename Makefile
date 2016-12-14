@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/12/14 04:35:50 by vthomas          ###   ########.fr        #
+#    Updated: 2016/12/14 21:35:22 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRC_NAME = main.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-DBG_OUTPUT = /dev/ttys001
+DBG_OUTPUT = /dev/ttys003
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 OBJ_SUB = builtin init input input/parse other
