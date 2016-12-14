@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:39:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/11 03:20:05 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 01:42:07 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static void	sf_inithash(t_cmd *cmd)
 	cmd[3].hash = hash("env");
 	cmd[4].hash = hash("cd");
 	cmd[5].hash = hash("pwd");
+	cmd[6].hash = hash("exit");
+	cmd[7].hash = hash("builtin");
 }
 
 static void	sf_initname(t_cmd *cmd)
@@ -32,6 +34,8 @@ static void	sf_initname(t_cmd *cmd)
 	cmd[3].name = ft_strdup("env");
 	cmd[4].name = ft_strdup("cd");
 	cmd[5].name = ft_strdup("pwd");
+	cmd[6].name = ft_strdup("exit");
+	cmd[7].name = ft_strdup("builtin");
 }
 
 //TODO: Add function
@@ -43,6 +47,8 @@ static void	sf_initfunction(t_cmd *cmd)
 	cmd[3].f = b_env;
 	cmd[4].f = NULL;
 	cmd[5].f = b_pwd;
+	cmd[6].f = b_exit;
+	cmd[7].f = b_builtin;
 }
 
 t_cmd	*init_cmd(t_sh *sh)

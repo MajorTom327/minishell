@@ -6,14 +6,13 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/11 05:31:39 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 01:34:38 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# define BUILTIN_NB	6
 # define VK_UP		65
 # define VK_LEFT	68
 # define VK_RIGHT	67

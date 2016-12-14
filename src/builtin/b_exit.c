@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin.h                                          :+:      :+:    :+:   */
+/*   b_exit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 05:02:11 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 01:44:05 by vthomas          ###   ########.fr       */
+/*   Created: 2016/12/14 01:32:40 by vthomas           #+#    #+#             */
+/*   Updated: 2016/12/14 01:38:04 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUILTIN_H
-# define BUILTIN_H
+#include <builtin.h>
+#include <unistd.h>
 
-# define BUILTIN_NB 8
-
-int		b_cd(void *env, char **cmd);
-int		b_exit(void *env, char **cmd);
-int		b_echo(void *env, char **cmd);
-int		b_pwd(void *env, char **cmd);
-int		b_env(void *env, char **cmd);
-int		b_builtin(void *env, char **cmd);
-
-#endif
+int		b_exit(void *env, char **cmd)
+{
+	(void)env;
+	(void)cmd;
+	exit(0);
+}

@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin.h                                          :+:      :+:    :+:   */
+/*   b_builtin.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 05:02:11 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 01:44:05 by vthomas          ###   ########.fr       */
+/*   Created: 2016/12/14 01:38:30 by vthomas           #+#    #+#             */
+/*   Updated: 2016/12/14 01:47:06 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUILTIN_H
-# define BUILTIN_H
+#include <builtin.h>
+#include <minishell.h>
+#include <libft.h>
 
-# define BUILTIN_NB 8
+int		b_builtin(void *env, char **cmd)
+{
+	t_sh *sh;
+	int i;
 
-int		b_cd(void *env, char **cmd);
-int		b_exit(void *env, char **cmd);
-int		b_echo(void *env, char **cmd);
-int		b_pwd(void *env, char **cmd);
-int		b_env(void *env, char **cmd);
-int		b_builtin(void *env, char **cmd);
-
-#endif
+	sh = (t_sh *)env;
+	(void)cmd;
+	i = 0;
+	while (i < BUILTIN_NB)
+	{
+		if (sh->cmd[i].f != NULL)
+			ft_putstr("\033[32m");
+		else
+			ft_putstr("\033[33m");
+		ft_putendl(sh->cmd[i].name);
+		i++;
+	}
+	ft_putstr("\033[0m");
+}

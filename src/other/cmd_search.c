@@ -6,11 +6,12 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 04:14:15 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/07 04:30:27 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 01:43:50 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
+#include <builtin.h>
 #include <libft.h>
 
 int	cmd_search(t_sh *sh, const char *str)
