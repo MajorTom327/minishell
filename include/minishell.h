@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 01:34:38 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 03:52:47 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 # define VK_RIGHT	67
 # define VK_DOWN	66
 
-#include <termios.h>
-#include <debug.h>
-#include <dirent.h>
+# include <termios.h>
+# include <debug.h>
+# include <dirent.h>
+
 typedef struct		s_cmd
 {
 	int				hash;
@@ -47,8 +48,7 @@ typedef struct		s_sh
 	int				env_l;
 }					t_sh;
 
-typedef struct	dirent
-				t_dirent;
+typedef struct dirent	t_dirent;
 
 int		hash(const char *str);
 

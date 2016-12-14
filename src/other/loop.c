@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 04:50:47 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/07 04:30:00 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 04:00:57 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	sf_deletecmd(char **cmd)
 	ft_memdel((void **)&cmd);
 }
 
-void	loop(t_sh *sh)
+void		loop(t_sh *sh)
 {
 	int		ret;
 	char	*buf;

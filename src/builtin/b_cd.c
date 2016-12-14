@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 02:48:21 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 03:27:20 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 03:53:58 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <libft.h>
 #include <unistd.h>
 
-static int sf_chdir(char *dir, t_sh *sh)
+static int	sf_chdir(char *dir, t_sh *sh)
 {
 	char	buf[1024];
 	int		i;
@@ -44,8 +44,7 @@ static int sf_chdir(char *dir, t_sh *sh)
 	return (0);
 }
 
-
-int		b_cd(void *env, char **cmd)
+int			b_cd(void *env, char **cmd)
 {
 	t_sh	*sh;
 	int		i;
@@ -57,12 +56,10 @@ int		b_cd(void *env, char **cmd)
 	else if (!ft_strcmp(cmd[1], "-"))
 	{
 		i = env_search(sh, "OLDPWD");
-		 i = sf_chdir(sh->env[i].value, sh);
+		i = sf_chdir(sh->env[i].value, sh);
 	}
 	else
-	{
 		i = sf_chdir(cmd[1], sh);
-	}
 	if (i == -1)
 	{
 		sh->ret = -1;

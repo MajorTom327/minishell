@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/12/14 02:52:20 by vthomas          ###   ########.fr        #
+#    Updated: 2016/12/14 04:04:25 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME=minishell
 SRC_NAME = main.c\
 		   builtin/b_builtin.c\
 		   builtin/b_cd.c\
+		   builtin/b_dotdot.c\
 		   builtin/b_echo.c\
 		   builtin/b_env.c\
 		   builtin/b_exit.c\
@@ -97,5 +98,10 @@ test: all
 	@echo "\033[32;4m`date`\033[0m\n" >> $(DBG_OUTPUT)
 	./$(NAME) 2>> $(DBG_OUTPUT)
 #	env -i ./$(NAME) 2>> $(DBG_OUTPUT)
+
+norme:
+	@make -C libft norme
+	@norminette src/**/*.c
+	@norminette include/*.h
 
 .PHONY: fclean clean

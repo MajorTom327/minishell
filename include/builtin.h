@@ -6,14 +6,14 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 05:02:11 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 02:46:02 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 03:38:03 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUILTIN_H
 # define BUILTIN_H
 
-# define BUILTIN_NB 8
+# define BUILTIN_NB 9
 
 enum	e_builtin
 {
@@ -24,7 +24,8 @@ enum	e_builtin
 	e_cd,
 	e_pwd,
 	e_exit,
-	e_builtin
+	e_builtin,
+	e_dotdot
 };
 
 int		b_cd(void *env, char **cmd);
@@ -33,5 +34,6 @@ int		b_echo(void *env, char **cmd);
 int		b_pwd(void *env, char **cmd);
 int		b_env(void *env, char **cmd);
 int		b_builtin(void *env, char **cmd);
+int		b_dotdot(void *env, char **cmd);
 
 #endif

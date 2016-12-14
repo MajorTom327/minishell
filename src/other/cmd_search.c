@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 04:14:15 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 01:43:50 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 03:59:22 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	cmd_search(t_sh *sh, const char *str)
 	{
 		if (ft_strcmp(sh->cmd[i].name, str) == 0)
 		{
-			break;
+			break ;
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 00:49:03 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/07 00:51:10 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 03:59:14 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	env_search(t_sh *sh, const char *str)
 	while (i < sh->env_l)
 	{
 		if (ft_strcmp(sh->env[i].key, str) == 0)
-			break;
+			break ;
 		i++;
 	}
 	return ((i != sh->env_l) ? i : -1);

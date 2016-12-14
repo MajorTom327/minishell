@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:39:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 02:52:09 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 03:58:41 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	sf_inithash(t_cmd *cmd)
 	cmd[e_pwd].hash = hash("pwd");
 	cmd[e_exit].hash = hash("exit");
 	cmd[e_builtin].hash = hash("builtin");
+	cmd[e_dotdot].hash = hash("..");
 }
 
 static void	sf_initname(t_cmd *cmd)
@@ -36,10 +37,10 @@ static void	sf_initname(t_cmd *cmd)
 	cmd[e_pwd].name = ft_strdup("pwd");
 	cmd[e_exit].name = ft_strdup("exit");
 	cmd[e_builtin].name = ft_strdup("builtin");
+	cmd[e_dotdot].name = ft_strdup("..");
 }
 
-//TODO: Add function
-static void	sf_initfunction(t_cmd *cmd)
+static void		sf_initfunction(t_cmd *cmd)
 {
 	cmd[e_echo].f = b_echo;
 	cmd[e_setenv].f = NULL;
@@ -49,6 +50,7 @@ static void	sf_initfunction(t_cmd *cmd)
 	cmd[e_pwd].f = b_pwd;
 	cmd[e_exit].f = b_exit;
 	cmd[e_builtin].f = b_builtin;
+	cmd[e_dotdot].f = b_dotdot;
 }
 
 t_cmd	*init_cmd(t_sh *sh)
@@ -61,7 +63,7 @@ t_cmd	*init_cmd(t_sh *sh)
 	sf_inithash(cmd);
 	sf_initfunction(cmd);
 	i = 0;
-	while (i < BUILTIN_NB)//INIT PARAM
+	while (i < BUILTIN_NB)
 	{
 		dbg_var_str("init_cmd", "current builtin", cmd[i].name, 2);
 		cmd[i++].param = (void *)sh;

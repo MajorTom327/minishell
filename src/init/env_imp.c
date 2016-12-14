@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 04:06:23 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 02:59:58 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 03:56:19 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ t_env		*add_env(t_sh *sh, const char *name, const char *value)
 
 	i = 0;
 	env = sh->env;
-	dbg_var_str("add_env", "Key", name, 2);
-	dbg_var_str("add_env", "Val", value, 2);
 	while (i++ < sh->env_l)
 		;
 	exit_mem((n_env = (t_env *)ft_memalloc(sizeof(t_env) * (i + 2))));
@@ -52,13 +50,14 @@ static void	sf_initshlvl(t_sh *sh)
 	while (i < sh->env_l)
 	{
 		if (!ft_strcmp(sh->env[i].key, "SHLVL"))
-			break;
+			break ;
 		i++;
 	}
 	value = ft_atoi(sh->env[i].value) + 1;
 	ft_strdel(&(sh->env[i].value));
 	sh->env[i].value = ft_itoa(value);
 }
+
 static void	sf_envimp(int found_var, t_sh *sh)
 {
 	char buf[1024];

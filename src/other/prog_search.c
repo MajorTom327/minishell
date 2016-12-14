@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 03:30:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/11 05:38:34 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 03:59:56 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <libft.h>
 #include <dirent.h>
 
-static char *sf_dirsearch(DIR *m_dir, char *name)
+static char	*sf_dirsearch(DIR *m_dir, char *name)
 {
 	t_dirent	*m_dirent;
 
@@ -26,7 +26,7 @@ static char *sf_dirsearch(DIR *m_dir, char *name)
 	return (NULL);
 }
 
-int	prog_search(t_sh *sh, char **cmd)
+int			prog_search(t_sh *sh, char **cmd)
 {
 	char	**dir;
 	char	*tmp;
@@ -41,7 +41,7 @@ int	prog_search(t_sh *sh, char **cmd)
 	{
 		m_dir = opendir(dir[i]);
 		if ((tmp = sf_dirsearch(m_dir, cmd[0])))
-			break;
+			break ;
 		closedir(m_dir);
 	}
 	if (tmp)

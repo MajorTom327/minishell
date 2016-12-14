@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 00:32:30 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/07 01:05:21 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 03:58:57 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		get_prompt(t_sh *sh)
 	int		l;
 
 	ft_strdel(&(sh->prompt));
-	sh->prompt = ft_strdup("\e[90mminishell");//change by username
+	sh->prompt = ft_strdup("\e[90mminishell");
 	getcwd(buf, 1024);
 	sh->prompt = ft_freejoin(sh->prompt, ((sh->ret) ? "\e[31m" : "\e[32m"));
 	sh->prompt = ft_freejoin(sh->prompt, ":\e[34m");

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 01:38:30 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 01:52:34 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/14 03:53:27 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include <libft.h>
 
 //TODO: remove color
-int		b_builtin(void *env, char **cmd)
+int	b_builtin(void *env, char **cmd)
 {
-	t_sh *sh;
-	int i;
+	t_sh	*sh;
+	int		i;
 
 	sh = (t_sh *)env;
 	(void)cmd;

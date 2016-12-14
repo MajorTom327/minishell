@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   b_dotdot.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/06 02:47:34 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 03:56:34 by vthomas          ###   ########.fr       */
+/*   Created: 2016/12/14 03:33:09 by vthomas           #+#    #+#             */
+/*   Updated: 2016/12/14 03:36:32 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minishell.h>
+#include <builtin.h>
 #include <libft.h>
 
-static void	sf_cleantab(char *str)
+int		b_dotdot(void *env, char **cmd)
 {
-	int i;
+	char **str;
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '\t')
-			str[i] = ' ';
-		i++;
-	}
-}
-
-char		**clean_cmd(char **cmd)
-{
-	char	**command;
-
-	sf_cleantab(*cmd);
-	command = ft_strsplit(*cmd, ' ');
-	dbg_var_array_str("clean_cmd", "command", (const char **)command, 3);
-	ft_strdel(cmd);
-	return (command);
+	(void)cmd;
+	str = ft_strsplit("cd ..", ' ');
+	b_cd(env, str);
+	ft_strdel(&str[0]);
+	ft_strdel(&str[1]);
+	ft_strdel(&str[2]);
+	ft_memdel((void **)&str);
 }
