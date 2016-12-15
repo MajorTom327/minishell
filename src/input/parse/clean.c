@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/06 02:47:34 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 03:56:34 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/15 03:43:54 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ char		**clean_cmd(char **cmd)
 
 	sf_cleantab(*cmd);
 	command = ft_strsplit(*cmd, ' ');
-	dbg_var_array_str("clean_cmd", "command", (const char **)command, 3);
 	ft_strdel(cmd);
 	return (command);
 }

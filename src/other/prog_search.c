@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 03:30:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/15 03:27:39 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/15 03:42:34 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,35 @@ static char	*sf_dirsearch(DIR *m_dir, char *name)
 	return (NULL);
 }
 
-int			prog_search(t_sh *sh, char **cmd)
+static char	*sf_searchindir(char **dir, char *progname, int *i)
 {
-	char	**dir;
 	char	*tmp;
-	int		i;
 	DIR		*m_dir;
 
-	if ((i = env_search(sh, "PATH")) == -1)
-		return (-1);
-	dir = ft_strsplit(sh->env[i].value, ':');
-	i = -1;
-	while (dir[++i])
+	*i = -1;
+	while (dir[++(*i)])
 	{
-		//
-		m_dir = opendir(dir[i]);
-		//
-		if ((tmp = sf_dirsearch(m_dir, cmd[0])))
+		m_dir = opendir(dir[*i]);
+		if ((tmp = sf_dirsearch(m_dir, progname)))
 			break ;
 		closedir(m_dir);
 		m_dir = NULL;
 	}
 	if (m_dir != NULL)
 		closedir(m_dir);
+	return (tmp);
+}
+
+int			prog_search(t_sh *sh, char **cmd)
+{
+	char	**dir;
+	char	*tmp;
+	int		i;
+
+	if ((i = env_search(sh, "PATH")) == -1)
+		return (-1);
+	dir = ft_strsplit(sh->env[i].value, ':');
+	tmp = sf_searchindir(dir, cmd[0], &i);
 	if (tmp)
 	{
 		ft_strdel(&cmd[0]);
