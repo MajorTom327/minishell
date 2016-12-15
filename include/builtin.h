@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 05:02:11 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 22:16:16 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/15 01:40:06 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		b_echo(void *env, char **cmd);
 int		b_pwd(void *env, char **cmd);
 int		b_env(void *env, char **cmd);
 int		b_setenv(void *env, char **cmd);
+int		b_unsetenv(void *env, char **cmd);
 int		b_builtin(void *env, char **cmd);
 int		b_dotdot(void *env, char **cmd);
 
