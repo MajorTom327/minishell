@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 04:06:23 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 03:56:19 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/15 03:14:11 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ t_env		*env_imp(t_sh *sh)
 			found_var = found_var | 0x04;
 		i++;
 	}
-	dbg_var_int("env_imp", "after while", found_var, 3);
 	sf_envimp(found_var, sh);
 	return (env);
 }

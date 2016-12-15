@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:39:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/15 01:40:15 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/15 03:14:24 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ t_cmd	*init_cmd(t_sh *sh)
 	i = 0;
 	while (i < BUILTIN_NB)
 	{
-		dbg_var_str("init_cmd", "current builtin", cmd[i].name, 2);
 		cmd[i++].param = (void *)sh;
 	}
 	return (cmd);

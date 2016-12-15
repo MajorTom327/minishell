@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:13:47 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 03:58:13 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/15 03:13:55 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ t_env		*init_env(t_sh *sh, char **environ)
 		i++;
 	}
 	sh->env_l = i;
-	dbg_info("init_env", "init ended", 4);
-	dbg_info("init_env", "ended with success !", 2);
 	env_imp(sh);
 	return (sh->env);
 }

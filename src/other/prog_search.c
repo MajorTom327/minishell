@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 03:30:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 22:25:21 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/15 03:27:39 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,16 @@ int			prog_search(t_sh *sh, char **cmd)
 	i = -1;
 	while (dir[++i])
 	{
+		//
 		m_dir = opendir(dir[i]);
+		//
 		if ((tmp = sf_dirsearch(m_dir, cmd[0])))
 			break ;
 		closedir(m_dir);
+		m_dir = NULL;
 	}
+	if (m_dir != NULL)
+		closedir(m_dir);
 	if (tmp)
 	{
 		ft_strdel(&cmd[0]);

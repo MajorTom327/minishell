@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 22:06:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 22:17:06 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/15 03:12:54 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 char **parseenv(char **cmd)
 {
 	char **env;
-	int i;
 
 	env = ft_memalloc(sizeof(char *) * 3);
 	env[0] = ft_strdup(cmd[1]);
