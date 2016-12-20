@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 01:39:22 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/15 02:04:10 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/20 15:37:30 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int		b_unsetenv(void *env, char **cmd)
 	z = 0;
 	while (++y <= sh->env_l)
 	{
-		dbg_var_str("unsetenv", "key", sh->env[y].key, 2);
 		if (y == x)
 			continue;
 		environ[z].key = ft_strdup(sh->env[y].key);

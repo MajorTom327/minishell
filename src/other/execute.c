@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 02:40:41 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/20 15:12:24 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/20 15:30:04 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ static int	sf_execute(t_sh *sh, char **cmd)
 
 	fd = fork();
 	if (fd != 0)
-	{
-		wait(&(sh->ret));
-	}
+		waitpid(fd, &(sh->ret), 0);
 	else
 	{
 		env = ft_memalloc(sizeof(char *) * (sh->env_l + 1));
@@ -36,7 +34,9 @@ static int	sf_execute(t_sh *sh, char **cmd)
 			env[i] = ft_freejoin(env[i], sh->env[i].value);
 			i++;
 		}
-		execve(cmd[0], cmd, env);
+		i = execve(cmd[0], cmd, env);
+		if (i == -1)
+			return ((sh->ret = -1));
 		ft_strtabdel(env);
 		ft_memdel((void **)&env);
 	}
