@@ -6,14 +6,14 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 22:06:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/15 03:12:54 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/20 14:30:57 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <builtin.h>
 #include <libft.h>
 
-char **parseenv(char **cmd)
+char	**parseenv(char **cmd)
 {
 	char **env;
 

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 03:39:08 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/15 03:14:24 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/20 14:31:22 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	sf_initname(t_cmd *cmd)
 	cmd[e_dotdot].name = ft_strdup("..");
 }
 
-static void		sf_initfunction(t_cmd *cmd)
+static void	sf_initfunction(t_cmd *cmd)
 {
 	cmd[e_echo].f = b_echo;
 	cmd[e_setenv].f = b_setenv;
@@ -53,7 +53,7 @@ static void		sf_initfunction(t_cmd *cmd)
 	cmd[e_dotdot].f = b_dotdot;
 }
 
-t_cmd	*init_cmd(t_sh *sh)
+t_cmd		*init_cmd(t_sh *sh)
 {
 	t_cmd	*cmd;
 	int		i;
