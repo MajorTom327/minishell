@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 02:40:41 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/15 03:12:29 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/12/20 15:12:24 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,36 @@
 #include <libft.h>
 #include <unistd.h>
 
-int	execute_exe(t_sh *sh, char **cmd)
+static int	sf_execute(t_sh *sh, char **cmd)
+{
+	pid_t	fd;
+	char	**env;
+	int		i;
+
+	fd = fork();
+	if (fd != 0)
+	{
+		wait(&(sh->ret));
+	}
+	else
+	{
+		env = ft_memalloc(sizeof(char *) * (sh->env_l + 1));
+		i = 0;
+		while (i < sh->env_l)
+		{
+			env[i] = ft_strdup(sh->env[i].key);
+			env[i] = ft_freejoin(env[i], "=");
+			env[i] = ft_freejoin(env[i], sh->env[i].value);
+			i++;
+		}
+		execve(cmd[0], cmd, env);
+		ft_strtabdel(env);
+		ft_memdel((void **)&env);
+	}
+	return (sh->ret);
+}
+
+int			execute_exe(t_sh *sh, char **cmd)
 {
 	if (access(cmd[0], X_OK) == -1 || access(cmd[0], F_OK) == -1)
 	{
@@ -26,12 +55,10 @@ int	execute_exe(t_sh *sh, char **cmd)
 		ft_putendl(cmd[0]);
 		return (1);
 	}
-	ft_putendl("EXTERNAL PROGRAM");
-	ft_putendl(cmd[0]);
-	return (0);
+	return (sf_execute(sh, cmd));
 }
 
-int	execute(t_sh *sh, char **cmd)
+int			execute(t_sh *sh, char **cmd)
 {
 	int i;
 
