@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 04:50:47 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/15 03:12:24 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/02 23:23:32 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void		loop(t_sh *sh)
 			ft_strdel(&buf);
 			continue ;
 		}
-		execute(sh, cmd);
+		execute(sh, cmd, 0);
 		sf_deletecmd(cmd);
 		ft_strdel(&buf);
 		if (get_prompt(sh))

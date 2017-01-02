@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 03:52:47 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/02 23:23:05 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int		prog_search(t_sh *sh, char **cmd);
 
 void	loop(t_sh *sh);
 char	**clean_cmd(char **cmd);
-int		execute(t_sh *sh, char **cmd);
-int		execute_exe(t_sh *sh, char **cmd);
+int		execute(t_sh *sh, char **cmd, int st);
+int		execute_exe(t_sh *sh, char **cmd, int st);
 
 void	exit_mem(void *mem);
 void	exit_success(void);

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 04:40:12 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 03:49:57 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/02 23:32:55 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 #include <builtin.h>
 #include <minishell.h>
 
-int		b_env(void *env, char **cmd)
+static int	sf_enverror(char *cmd)
+{
+	ft_putstr("env: illegal option -");
+	ft_putendl(cmd);
+	ft_putendl("usage: env [-i]");
+	return (1);
+}
+
+int			b_env(void *env, char **cmd)
 {
 	t_sh	*sh;
 	int		i;
@@ -22,7 +30,10 @@ int		b_env(void *env, char **cmd)
 	(void)cmd;
 	sh = (t_sh *)env;
 	i = 0;
-	dbg_title("b_env");
+	if (cmd[1] && !ft_strcmp(cmd[1], "-i"))
+		return (execute(sh, &cmd[2], 1));
+	else if (cmd[1])
+		return (sf_enverror(cmd[1]));
 	while (i < sh->env_l)
 	{
 		ft_putstr((sh->env[i]).key);
@@ -30,6 +41,5 @@ int		b_env(void *env, char **cmd)
 		ft_putendl((sh->env[i]).value);
 		i++;
 	}
-	dbg_title("b_env finished");
 	return (0);
 }
