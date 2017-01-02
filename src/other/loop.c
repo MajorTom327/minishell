@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 04:50:47 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/02 23:23:32 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/02 23:54:29 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,13 @@ static void	sf_deletecmd(char **cmd)
 	ft_memdel((void **)&cmd);
 }
 
-void		loop(t_sh *sh)
+static void	sf_miniloop(t_sh *sh)
 {
-	int		ret;
-	char	*buf;
 	char	**cmd;
+	char	*buf;
+	int		ret;
 	size_t	l;
 
-	if (get_prompt(sh))
-		exit(EXIT_FAILURE);
-	ft_putstr(sh->prompt);
 	while ((ret = get_next_line(0, &buf)))
 	{
 		cmd = NULL;
@@ -57,4 +54,12 @@ void		loop(t_sh *sh)
 			exit(EXIT_FAILURE);
 		ft_putstr(sh->prompt);
 	}
+}
+
+void		loop(t_sh *sh)
+{
+	if (get_prompt(sh))
+		exit(EXIT_FAILURE);
+	ft_putstr(sh->prompt);
+	sf_miniloop(sh);
 }

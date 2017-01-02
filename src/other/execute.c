@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 02:40:41 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/02 23:27:18 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/02 23:56:36 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ int			execute(t_sh *sh, char **cmd, int st)
 {
 	int i;
 
-	if (cmd[0] == NULL)
+	if (cmd[0] == NULL && st)
+		return (0);
+	else if (cmd[0] == NULL)
 		return (1);
 	i = cmd_search(sh, cmd[0]);
 	if (i != -1)
