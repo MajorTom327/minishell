@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 02:40:41 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/02 23:56:36 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/10 07:03:16 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	sf_execute(t_sh *sh, char **cmd, int st)
 
 int			execute_exe(t_sh *sh, char **cmd, int st)
 {
-	if (access(cmd[0], F_OK) == -1)
+	if (access(cmd[0], F_OK) == -1 || access(cmd[0], X_OK) == -1)
 	{
 		ft_putstr(sh->progname);
 		if (access(cmd[0], F_OK) == -1)
