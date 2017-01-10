@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 00:32:30 by vthomas           #+#    #+#             */
-/*   Updated: 2016/12/14 04:18:24 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/10 06:37:59 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,15 @@ char	*get_home(t_sh *sh)
 int		get_prompt(t_sh *sh)
 {
 	char	buf[1024];
+	int		i;
 	int		l;
 
 	ft_strdel(&(sh->prompt));
-	sh->prompt = ft_strdup("\e[90mminishell");
+	sh->prompt = ft_strdup("\e[90m");
+	if ((i = env_search(sh, "LOGNAME")) != -1)
+		sh->prompt = ft_freejoin(sh->prompt, sh->env[i].value);
+	else
+		sh->prompt = ft_freejoin(sh->prompt, "minishell");
 	getcwd(buf, 1024);
 	sh->prompt = ft_freejoin(sh->prompt, ((sh->ret) ? "\e[31m" : "\e[32m"));
 	sh->prompt = ft_freejoin(sh->prompt, ":\e[34m");
