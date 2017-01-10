@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 22:10:50 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/02 23:58:38 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/10 05:36:14 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define VK_DOWN	66
 
 # include <termios.h>
-# include <debug.h>
 # include <dirent.h>
 
 typedef struct		s_cmd

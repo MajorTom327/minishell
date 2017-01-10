@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2016/12/20 14:24:40 by vthomas          ###   ########.fr        #
+#    Updated: 2017/01/10 05:35:51 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,8 +47,8 @@ OBJ_SUB = builtin init input input/parse other
 SRC=$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ=$(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
-LIB = -L libft -L DebugLib -lft -ldbg
-INC = -I include -I libft -I DebugLib/include
+LIB = -L libft -lft
+INC = -I include -I libft
 FMW =
 
 CC = clang
@@ -71,8 +71,6 @@ lib:
 	@printf "\033[34m▶    \033[4mLIBRAIRIES\033[0;34m    ◀\033[0m\n"
 	@printf "\033[32;4m▶\tLIBFT\033[0m\n"
 	@make -C ./libft
-	@printf "\033[32;4m▶\tLIBDBG\033[0m\n"
-	@make -C ./DebugLib
 	@printf "\033[34;1m\n▶    \033[0;32;1m✔ \033[0;34;1mLibrairies\033[0;32;1m ✔\033[0;34;1m    ◀\033[0m\n"
 	@printf "\033[90m--------------------------------------------------------------------------------\033[0m\n"
 	@printf "\033[34m▶    \033[4mSOURCES\033[0;34m    ◀\033[0m\n"
@@ -84,12 +82,10 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 clean:
 	-@rm -rf $(OBJ_PATH)
 	@make -C ./libft $@
-	@make -C ./DebugLib $@
 
 fclean: clean
 	-@rm $(NAME)
 	@make -C ./libft $@
-	@make -C ./DebugLib $@
 	@printf "🦄  There is no more unicorn poop 🦄\n"
 
 re: fclean all
