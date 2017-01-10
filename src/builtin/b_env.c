@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 04:40:12 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 05:38:23 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/10 06:15:35 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			b_env(void *env, char **cmd)
 	i = 0;
 	if (cmd[1] && !ft_strcmp(cmd[1], "-i"))
 	{
-		if (ft_strcmp(cmd[2], "env"))
+		if (cmd[2] && ft_strcmp(cmd[2], "env"))
 			return (execute(sh, &cmd[2], 1));
 		return (0);
 	}
